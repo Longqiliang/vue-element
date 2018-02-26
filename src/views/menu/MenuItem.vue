@@ -18,6 +18,7 @@
         <dd  v-for="children in item.children" :key="children.name"> 
             <menu-item :route="[children]" :key="children.name"></menu-item> 
         </dd>
+        
       </dl>
     </template>  
   </div>
