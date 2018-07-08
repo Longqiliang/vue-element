@@ -1,6 +1,6 @@
 <template>
   <scroll-bar>
-    <el-menu mode="vertical" unique-opened :default-active="$router.path" :collapse="isCollapse" background-color="#304156" text-color="#fff" active-text-color="#409EFF">
+    <el-menu mode="vertical" unique-opened :default-active="$router.path" background-color="#5276f0" :collapse="isCollapse" text-color="#fff" active-text-color="#e58500">
       <sidebar-item :routes="routes"></sidebar-item>
     </el-menu>
   </scroll-bar>
@@ -20,7 +20,6 @@ export default {
       'sidebar'
     ]),
     routes () {
-      console.log(this.$router.options.routes)
       return this.$router.options.routes
     },
     isCollapse () {

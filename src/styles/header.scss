@@ -1,0 +1,66 @@
+#app{
+    height: 100%;
+    .is-component {
+        height: 100%;
+        overflow-y: hidden;
+        .headerWrapper{
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 1500;
+            .container{
+                padding:0 15px;
+                height: 100%;
+            }
+        }
+    }
+}
+.headerWrapper {
+  height: $headerHeight;
+}
+
+.header {
+  height: $headerHeight;
+  background-color: $default;
+  color: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: $headerHeight;
+  z-index: 100;
+  position: relative;
+  h1 {
+    margin: 0;
+    float: left;
+    a {
+      display: block;
+      text-decoration: none;
+      display: block;
+    }
+  }
+  .nav {
+    &-logo {
+      vertical-align: middle;
+    }
+    float: right;
+    height: 100%;
+    line-height:$headerHeight;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    &:after,
+    &:before {
+      display: table;
+      content: "";
+    }
+    &-item {
+      margin: 0;
+      float: left;
+      list-style: none;
+      position: relative;
+      cursor: pointer;
+      padding: 0 15px;
+    }
+  }
+}

@@ -28,7 +28,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../../styles/_variables';
+.svg-icon {
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+  overflow: hidden;
+}
 .hamburger {
     display: inline-block;
     cursor: pointer;
@@ -37,8 +44,14 @@ export default {
     transform: rotate(0deg);
     transition: .38s;
     transform-origin: 50% 50%;
+    color: #fff;
+    &-container {
+      float: left;
+      padding: 0 10px;
+      line-height: $headerHeight;
+    }
+    margin-bottom: -5px;
 }
-
 .hamburger.is-active {
     transform: rotate(90deg);
 }

@@ -12,28 +12,10 @@
 <script>
 export default {
   name: 'breadcrumb',
-  created () {
-    this.getRoute()
-  },
-  data () {
-    return {
-      list: null
-    }
-  },
-  watch: {
-    $route () {
-      this.getRoute()
-    }
-  },
-  methods: {
-    getRoute () {
-      console.log(this.$route)
-      let matched = this.$route.matched.filter(item => item.name)
-      const first = matched[0]
-      if (first && first.name !== 'dashboard') {
-        matched = [{path: '/dashboard', meta: {title: 'Dashboard'}}].concat(matched)
-      }
-      this.list = matched
+  props: {
+    list: {
+      type: Array,
+      default: null
     }
   }
 }
@@ -44,7 +26,6 @@ export default {
     display: inline-block;
     font-size: 14px;
     line-height: 50px;
-    margin-left: 10px;
     .no-redirect {
       color: #97a8be;
       cursor: text;

@@ -1,28 +1,42 @@
 <template>
-  <el-menu class="navbar" mode="horizontal">
-    <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-    <breadcrumb></breadcrumb>
-  </el-menu>
+  <div>
+    <h3 class="navbar-title">
+      {{list[list.length - 1].meta.title}}
+    </h3>
+    <el-menu class="navbar">
+      <breadcrumb :list="list"></breadcrumb>
+    </el-menu>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
 
 export default {
   components: {
-    Breadcrumb,
-    Hamburger
+    Breadcrumb
   },
-  computed: {
-    ...mapGetters([
-      'sidebar'
-    ])
+  data () {
+    return {
+      list: null
+    }
+  },
+  created () {
+    this.getRoute()
+  },
+  watch: {
+    $route () {
+      this.getRoute()
+    }
   },
   methods: {
-    toggleSideBar () {
-      this.$store.dispatch('ToggleSideBar')
+    getRoute () {
+      let matched = this.$route.matched.filter(item => item.name)
+      const first = matched[0]
+      if (first && first.name !== 'index') {
+        matched = [{path: '/index', meta: {title: '首页'}}].concat(matched)
+      }
+      this.list = matched
     }
   }
 }
@@ -30,15 +44,14 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
+  &-title{
+    margin: 0;
+    font-size: 23px;
+    font-weight: 500;
+  }
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
-  .hamburger-container {
-    line-height: 58px;
-    height: 50px;
-    float: left;
-    padding: 0 10px;
-  }
   .screenfull {
     position: absolute;
     right: 90px;

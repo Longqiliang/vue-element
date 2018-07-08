@@ -1,24 +1,37 @@
 <template>
-  <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
-    <sidebar class="sidebar-container" ></sidebar>
-    <div class="main-container">
-      <navbar></navbar>
-      <app-main></app-main>
-    </div>
+  <div class="is-component">
+    <HeaderWrapper/>
+    <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
+      <div class="wrapper_scroll">
+        <div class="scroll_wrap">
+          <sidebar class="sidebar-container" ></sidebar>
+          <div class="main-container">
+            <navbar></navbar>
+            <app-main></app-main>
+          </div>
+        </div> 
+      </div>  
+    </div> 
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from '@/views/layout/components'
+import {
+  Navbar,
+  Sidebar,
+  AppMain,
+  HeaderWrapper
+} from "@/views/layout/components"
 export default {
-  name: 'layout',
+  name: "layout",
   components: {
     Navbar,
     Sidebar,
-    AppMain
+    AppMain,
+    HeaderWrapper
   },
   computed: {
-    sidebar () {
+    sidebar() {
       return this.$store.state.app.sidebar
     }
   }
