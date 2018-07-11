@@ -143,4 +143,26 @@
   .el-menu--collapse .el-menu .el-submenu {
     min-width: 180px !important;
   }
+  .el-menu{
+    &--collapse{
+      .el-submenu,.el-menu-item span{
+        >.el-submenu__title{
+          span,{
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            visibility: hidden;
+            display: inline-block;
+          }
+        }
+      }
+      >.el-menu-item span{
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        visibility: hidden;
+        display: inline-block;
+      }
+    }
+  }
 }
