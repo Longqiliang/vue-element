@@ -20,21 +20,6 @@ const constantRouterMap = [
     }]
   },
   {
-    path: '/transaction',
-    component: Layout,
-    redirect: 'index',
-    children: [{
-      path: 'index',
-      component: () =>
-        import ('@/views/table/community/index'),
-      name: 'transaction',
-      meta: {
-        icon: 'task',
-        title: '事务管理'
-      }
-    }]
-  },
-  {
     path: '/information',
     component: Layout,
     redirect: 'noredirect',
@@ -47,11 +32,18 @@ const constantRouterMap = [
     children: [{
       path: 'community',
       name: 'community',
-      component: () =>
-        import ('@/views/table/community/index'),
+      redirect: 'community/index',
+      childHidden: true,
       meta: {
         title: '小区库'
-      }
+      },
+      component: () =>
+        import ('@/views/table/main'),
+      children: [{
+        path: 'index',
+        component: () =>
+          import ('@/views/table/community/index')
+      }]
     }, {
       path: 'serviceBase',
       name: 'serviceBase',
@@ -91,6 +83,21 @@ const constantRouterMap = [
         import ('@/views/table/community/index'),
       meta: {
         title: '诚信库'
+      }
+    }]
+  },
+  {
+    path: '/transaction',
+    component: Layout,
+    redirect: 'index',
+    children: [{
+      path: 'index',
+      component: () =>
+        import ('@/views/table/community/index'),
+      name: 'transaction',
+      meta: {
+        icon: 'task',
+        title: '事务管理'
       }
     }]
   },

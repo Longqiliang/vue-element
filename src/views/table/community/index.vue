@@ -1,5 +1,6 @@
 <template>
-    <el-table :data="table" style="width: 100%" border >
+<div>
+    <el-table :data="table" style="width: 100%" border header-cell-class-name="default-bg">
         <el-table-column v-for="(col, c) in columns" :prop="col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type">
             <template v-if="col.children">
                 <el-table-column v-for="(ch,o) in col.children" :key="o" :label="ch.label" :prop="ch.name || ch.label"></el-table-column>
@@ -9,6 +10,14 @@
             </template>
         </el-table-column>
     </el-table>
+    <el-pagination :total="total" :current-page="listQuery.pageIndex" :page-size="listQuery.pageSize" layout="prev, pager, next, ->, jumper, slot, total" @current-change="handleCurrentChange" class="pagination">
+      <slot>
+        <span class="pagination__count">{{pageCount}}</span>
+      </slot>
+      
+    </el-pagination>
+</div>
+
 </template>
 
 <script>
@@ -75,19 +84,33 @@ export default {
           name: "查看详情",
           width: 100
         }
-      ]
+      ],
+      listQuery: {
+        pageIndex: 1,
+        pageSize: 10
+      },
+      total: 50
     }
   },
   computed:{
       columns() {
-          if(this.isMultiple){
-              this.tableHeader.unshift({
-                  type: 'selection',
-                  width: 50
-              })   
-          }
-          return this.tableHeader 
+        if(this.isMultiple){
+            this.tableHeader.unshift({
+                type: 'selection',
+                width: 50
+            })   
+        }
+        return this.tableHeader 
+      },
+      pageCount() {
+        let count =  Math.ceil(this.total/this.listQuery.pageSize)
+        return `共${count}页、`
       }
+  },
+  methods: {
+    handleCurrentChange(val) {
+      this.listQuery.pageIndex = val
+    }
   }
 };
 </script>
