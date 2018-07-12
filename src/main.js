@@ -6,7 +6,7 @@ import router from './router'
 import store from './store'
 
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import './styles/element-variables.scss'
 
 // import VCharts from 'v-charts'
 // import VeBar from 'v-charts/lib/bar.common'

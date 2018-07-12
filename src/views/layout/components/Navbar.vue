@@ -52,6 +52,7 @@ export default {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
+  border-right: none !important;
   .screenfull {
     position: absolute;
     right: 90px;

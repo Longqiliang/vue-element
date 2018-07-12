@@ -87,14 +87,9 @@ module.exports = {
       {
         test: /\.css$/,
         include: [ 
-        /src/,
-        '/node_modules/element-ui/lib/'
+        /src/
         ], 
         loader: 'style-loader!css-loader'
-      },
-      {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
       }
     ]
   },
