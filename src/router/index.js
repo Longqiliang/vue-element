@@ -47,8 +47,24 @@ const constantRouterMap = [
     }, {
       path: 'serviceBase',
       name: 'serviceBase',
+      redirect: 'serviceBase/index',
+      childHidden: true,
       component: () =>
-        import ('@/views/table/community/index'),
+        import ('@/views/table/main'),
+        children: [{
+          path: 'index',
+          component: () =>
+            import ('@/views/information/propertyService')          
+        },
+        {
+          path: 'details/:id',
+          component: () =>
+            import ('@/views/information/serviceDetails')
+           
+        }
+      ],
+        
+         
       meta: {
         title: '物业服务企业库'
       }
