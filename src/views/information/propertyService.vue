@@ -28,7 +28,7 @@
           <el-table-column label="宝安管理项目数量" width="200" align="center">
             <template slot-scope="scope">
               <el-popover placement="bottom" width="200" trigger="hover" content='丽景城、丽华桂园、丽景城、丽华桂园、丽景城、丽华桂园'>
-                <a style="color:#649efc;" slot="reference">{{scope.row.num.number}}</a>
+                <a style="color:#649efc;" slot="reference" @click="projectlib(scope.$index)">{{scope.row.num.number}}</a>
               </el-popover>
             </template>
           </el-table-column>
@@ -60,11 +60,18 @@
         </el-button>
       </div>
     </div>
+    <el-pagination :total="total" :current-page="listQuery.pageIndex" :page-size="listQuery.pageSize" layout="prev, pager, next, ->, jumper, slot, total" @current-change="handleCurrentChange" class="pagination">
+      <slot>
+        <span class="pagination__count">{{pageCount}}</span>
+      </slot>
+      
+    </el-pagination>
   </div>
 
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   data () {
     return {
@@ -91,7 +98,12 @@ export default {
         phone: '132-2342-5243',
         look: '查看详情'
       }],
-      multipleSelection: []
+      multipleSelection: [],
+      listQuery: {
+        pageIndex: 1,
+        pageSize: 10
+      },
+      total: 50
     }
   },
   methods: {
@@ -99,8 +111,29 @@ export default {
       this.multipleSelection = val;
     },
     jumpToDetail (id) {screenX
-      this.$router.push({ path: '/information/serviceBase/details/' + id })
+      this.$router.push({ path: '/information/serviceBase/serviceDetails/' + id })
+    },
+    projectlib (id) {screenX
+      this.$router.push({ path: '/information/serviceBase/project/library/' + id })
+    },
+    handleCurrentChange(val) {
+      this.listQuery.pageIndex = val
     }
+  },
+  computed:{
+      columns() {
+        if(this.isMultiple){
+            this.tableHeader.unshift({
+                type: 'selection',
+                width: 50
+            })   
+        }
+        return this.tableHeader 
+      },
+      pageCount() {
+        let count =  Math.ceil(this.total/this.listQuery.pageSize)
+        return `共${count}页、`
+      }
   }
 }
 </script>

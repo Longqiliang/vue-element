@@ -3,74 +3,130 @@
     <div class="details-top">
       <div class="firm-details">
         <svg-icon icon-class="search"></svg-icon>
-        <span>企业详情</span>
+        <span>项目详情</span>
       </div>
       <el-button type="warning">
         <svg-icon icon-class="export"></svg-icon>
         <span>导出</span>
       </el-button>
     </div>
-    <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0" v-for="(item,index) in firmDetails" key="index" @click="tableEdit">
+    <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="4" class="table-title">
-          <span>企业详情</span>
+        <td colspan="8" class="table-title">
+          <span>项目详情</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
-            <el-button type="success" size="small" @click="compile">
-              <svg-icon icon-class="write"></svg-icon>
-              <span>编辑</span>
-            </el-button>
           </span>
         </td>
       </tr>
       <tr>
-        <td scope="row" class="has-background">
-          <span class="must">*</span>企业名称</td>
-        <td class="content">{{item.name}}</td>
         <td class="has-background">
-          <span class="must">*</span>统一社会信用代码</td>
-        <td class="content">{{item.num}}</td>
-      </tr>
-      <tr>
-        <td scope="row" class="has-background">
-          <span class="must">*</span>总经理</td>
-        <td class="content">{{item.general}}</td>
+          <span class="must">*</span>企业名称
+        </td>
+        <td colspan="3" width="35%">&nbsp;</td>
         <td class="has-background">
-          <span class="must">*</span>联系方式</td>
-        <td class="content">{{item.phone}}</td>
+          <span class="must">*</span>小区名称
+        </td>
+        <td colspan="3" width="35%">&nbsp;</td>
       </tr>
       <tr>
-        <td scope="row" class="has-background">
-          <span class="must">*</span>法人姓名</td>
-        <td class="content">{{item.legal}}</td>
         <td class="has-background">
-          <span class="must">*</span>身份证号码</td>
-        <td class="content">{{item.card}}</td>
-      </tr>
-      <tr>
-        <td scope="row" class="has-background">
-          <span class="must">*</span>联系方式</td>
-        <td class="content">{{item.phoneNum}}</td>
+          <span class="must">*</span>地址
+        </td>
+        <td colspan="3" width="35%">&nbsp;</td>
         <td class="has-background">
-          <span class="must">*</span>成立时间</td>
-        <td class="content">{{item.time}}</td>
+          <span class="must">*</span>成立时间
+        </td>
+        <td colspan="3" width="35%">&nbsp;</td>
       </tr>
       <tr>
-        <td scope="row" class="has-background">
-          <span class="must">*</span>管理项目</td>
-        <td colspan="3" class="content-col">{{item.project}}</td>
+        <td colspan="8" class="has-background">
+          <span class="must"></span>项目人员配置
+        </td>
       </tr>
       <tr>
-        <td scope="row" class="has-background">
-          <span class="must">*</span>单位地址</td>
-        <td colspan="3" class="content-col">{{item.site}}</td>
+        <td class="has-background">
+          <span class="must">*</span>物业经理
+        </td>
+        <td colspan="2" width="21%">&nbsp;</td>
+        <td class="has-background">
+          <span class="must">*</span>身份证号
+        </td>
+        <td colspan="2" width="21%">&nbsp;</td>
+        <td class="has-background">
+          <span class="must">*</span>联系电话
+        </td>
+        <td width="21%">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="4" class="has-background">
-          <span class="must">*</span>企业简介</td>
+        <td rowspan="4" class="has-background">
+          <span class="must"></span>安全部门
+        </td>
+        <td class="has-background">
+          <span class="must">*</span>负责人
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
+        <td colspan="2" rowspan="4">
+          <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+            <i class="el-icon-plus"></i>
+          </el-upload>
+          <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt="">
+          </el-dialog>
+        </td>
       </tr>
-      <tr class="firmIntro">
-        <td colspan="4" class="profile">{{item.intro}}</td>
+      <tr>
+        <td class="has-background">
+          <span class="must">*</span>身份证号
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="has-background">
+          <span class="must">*</span>联系电话
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="has-background">
+          <span class="must">*</span>具体人数
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td rowspan="4" class="has-background">
+          <span class="must"></span>维修部门          
+        </td>
+        <td class="has-background">
+          <span class="must">*</span>负责人
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
+        <td colspan="2" rowspan="4">
+          <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+            <i class="el-icon-plus"></i>
+          </el-upload>
+          <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt="">
+          </el-dialog>
+        </td>
+      </tr>
+      <tr>
+        <td class="has-background">
+          <span class="must">*</span>身份证号
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="has-background">
+          <span class="must">*</span>联系电话
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="has-background">
+          <span class="must">*</span>具体人数
+        </td>
+        <td colspan="4" width="47%">&nbsp;</td>
       </tr>
     </table>
     <div class="save" v-if="saveShow">
@@ -96,7 +152,9 @@ export default {
         site: '王者峡谷',
         intro: '单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行'
       }],
-      saveShow: false
+      saveShow: false,
+      dialogImageUrl: '',
+      dialogVisible: false
     }
   },
   methods: {
@@ -109,6 +167,13 @@ export default {
         type: 'success'
       })
       this.saveShow = false
+    },
+    handleRemove (file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePictureCardPreview (file) {
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
     },
     tableEdit (e) {
       if (this.saveShow) {
@@ -187,11 +252,11 @@ td {
   }
   span:nth-child(2) {
     float: right;
-    margin-top: 3px;
+    line-height: 40px;
   }
 }
 .has-background {
-  width: 22%;
+  width: 12.7%;
   background: #b9d1ef;
 }
 .must {
