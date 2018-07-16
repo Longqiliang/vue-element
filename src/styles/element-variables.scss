@@ -1,4 +1,36 @@
+@import '_variables';
 
-@import "_variables";
+/* Font
+-------------------------- */
+
+$--font-size-base: 16px;
+$--font-size-small: 14px;
+$--font-size-large: 20px;
+$--font-line-height-primary: 26px;
+/* Size
+-------------------------- */
+
+$--size-base: 16px;
+//element
+$--color-primary: $color-primary;
+$--border-color-lighter: $border-color-lighter;
+$--color-text-regular: $black;
+/* border
+-------------------------- */
+
+$--input-border: none;
+$--border-radius-base: 0;
+$--border-radius-small: 0;
+/* Input
+-------------------------- */
+
+$--input-focus-border: inherit;
+/* Pagination
+-------------------------- */
+
+$--pagination-font-size: $pagination-font-size;
+$--pagination-button-height: $pagination-button-height;
+$--pagination-button-width: 43.5px;
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";

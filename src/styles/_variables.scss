@@ -1,6 +1,13 @@
 //app
 $default: #5276f0;
 $defalutBg: #e4ecf6;
+$black: #2e3956;
+$color-primary: #4592d5;
+$border-color-lighter: #649efc;
+
+//pagination
+$pagination-button-height: 38px;
+$pagination-font-size: 16px;
 //header
 $headerHeight: 76px;
 //sidebar
@@ -9,26 +16,4 @@ $subMenuBg:#1f2d3d;
 $menuHover:#e58500;
 
 
-/* Font
--------------------------- */
 
-$--font-size-base: 16px;
-$--font-size-small: 14px;
-$--font-size-large: 20px;
-$--font-line-height-primary: 26px;
-/* Size
--------------------------- */
-
-$--size-base: 16px;
-
-//element
-$--color-primary: #4592d5;
-$--border-color-lighter: #649efc;
-
-/* Pagination
--------------------------- */
-$--pagination-font-size: 16px;
-$--pagination-button-height: 38px;
-$--pagination-button-width: 43.5px;
-
-$--font-path: '~element-ui/lib/theme-chalk/fonts';

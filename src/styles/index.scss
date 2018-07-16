@@ -91,11 +91,106 @@ a:hover {
 }
 .main-container{
   .el-table{
+    font-size: 16px;
     thead{
       color: #187ab9;
     }
   } 
 }
+//table 
+.table-header{
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid $border-color-lighter;
+  border-bottom: none;
+  background-color: $defalutBg;
+  position: relative;
+}
+.table-title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 40px;
+  font-weight: normal;
+  &-slot{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+//表单组件
+
+.form-row{
+  border: 1px solid $border-color-lighter;
+  + .form-row{
+    border-top: 0;
+  }
+  >.el-col{
+    + .el-col{
+      .field-search{
+        border-left: 1px solid $border-color-lighter;
+      }
+    }
+  }
+}
+.field-search{
+  // border: 1px solid $border-color-lighter;
+  >.input-group__label{
+    background-color: $defalutBg;
+    border-right: 1px solid $border-color-lighter;
+  }
+  .form-control{
+    border: none;
+    &:focus{
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+}
+.input-group{
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  &__label{
+    width: 1%;
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 16px;
+    color: $black;
+    line-height: 40px;
+    padding: 0 12px;
+  }
+  .form-control{
+    display: table-cell;
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+.form-control{
+  color: $black;
+  height: 40px;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.42857143;
+}
+.form-footer{
+  text-align: center;
+  padding: 10px 0;
+  .el-button{
+    font-size: 20px;
+    .svg-icon {
+      vertical-align: sub;
+      font-size: 24px;
+    }
+  }
+  
+}
+
 //分页组件样式
 .pagination{
   &.el-pagination{
@@ -103,35 +198,35 @@ a:hover {
   font-weight: normal;
     @at-root .el-pagination__rightwrapper {
       border-radius: 4px;
-      border: 1px solid $--border-color-lighter;
+      border: 1px solid $border-color-lighter;
       background-color: $defalutBg;
       .el-pagination__editor{
         border-radius: 0;
       }
       .el-input__inner{
-        height: $--pagination-button-height - 2px !important;
+        height: $pagination-button-height - 2px !important;
         border-radius: 0;
         border-top: 0;
         border-bottom: 0;
-        border-left: 1px solid $--border-color-lighter;
-        border-right: 1px solid $--border-color-lighter;
+        border-left: 1px solid $border-color-lighter;
+        border-right: 1px solid $border-color-lighter;
       }
     }
     button {
-      border: 1px solid $--border-color-lighter;
+      border: 1px solid $border-color-lighter;
       padding: 0;
       &:not(.disabled){
-        color: $--border-color-lighter;
+        color: $border-color-lighter;
       }
       .el-icon {
-        font-size: $--pagination-font-size;
+        font-size: $pagination-font-size;
       }
     }
     .el-pager {
-      // border-top: 1px solid $--border-color-lighter;
-      // border-bottom: 1px solid $--border-color-lighter;
+      // border-top: 1px solid $border-color-lighter;
+      // border-bottom: 1px solid $border-color-lighter;
       position: relative;
-      color: $--border-color-lighter;
+      color: $border-color-lighter;
       &::before {
         @include extend-rule(border-pseudo);
         top: 0;
@@ -149,12 +244,12 @@ a:hover {
       @include share-rule(border-pseudo) {
         content: '';
         position: absolute;
-        background-color: $--border-color-lighter;
+        background-color: $border-color-lighter;
         z-index: 1;
       }
       li {   
         &+ li{
-          border-left: 1px solid $--border-color-lighter;
+          border-left: 1px solid $border-color-lighter;
         }
         &.active {
           background-color: #efefef;

@@ -7,7 +7,7 @@ import store from './store'
 
 import ElementUI from 'element-ui'
 import './styles/element-variables.scss'
-
+import './styles/index.scss'
 // import VCharts from 'v-charts'
 // import VeBar from 'v-charts/lib/bar.common'
 // import VeHistogram from 'v-charts/lib/histogram.common'
