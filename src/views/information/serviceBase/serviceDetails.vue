@@ -10,7 +10,7 @@
         <span>导出</span>
       </el-button>
     </div>
-    <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0" v-for="(item,index) in firmDetails" key="index" @click="tableEdit">
+    <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0">
       <tr>
         <td colspan="4" class="table-title">
           <span>企业详情</span>
@@ -26,54 +26,76 @@
       <tr>
         <td scope="row" class="has-background">
           <span class="must">*</span>企业名称</td>
-        <td class="content">{{item.name}}</td>
+        <td class="content">
+          <input type="text" v-model="name" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>统一社会信用代码</td>
-        <td class="content">{{item.num}}</td>
+        <td class="content">
+          <input type="text" v-model="num" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td scope="row" class="has-background">
           <span class="must">*</span>总经理</td>
-        <td class="content">{{item.general}}</td>
+        <td class="content">
+          <input type="text" v-model="general" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>联系方式</td>
-        <td class="content">{{item.phone}}</td>
+        <td class="content">
+          <input type="text" v-model="phone" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td scope="row" class="has-background">
           <span class="must">*</span>法人姓名</td>
-        <td class="content">{{item.legal}}</td>
+        <td class="content">
+          <input type="text" v-model="legal" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>身份证号码</td>
-        <td class="content">{{item.card}}</td>
+        <td class="content">
+          <input type="text" v-model="card" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td scope="row" class="has-background">
           <span class="must">*</span>联系方式</td>
-        <td class="content">{{item.phoneNum}}</td>
+        <td class="content">
+          <input type="text" v-model="phoneNum" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>成立时间</td>
-        <td class="content">{{item.time}}</td>
+        <td class="content">
+          <input type="text" v-model="time" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td scope="row" class="has-background">
           <span class="must">*</span>管理项目</td>
-        <td colspan="3" class="content-col">{{item.project}}</td>
+        <td colspan="3" class="content-col">
+          <input type="text" v-model="project" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td scope="row" class="has-background">
           <span class="must">*</span>单位地址</td>
-        <td colspan="3" class="content-col">{{item.site}}</td>
+        <td colspan="3" class="content-col">
+          <input type="text" v-model="site" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td colspan="4" class="has-background">
           <span class="must">*</span>企业简介</td>
       </tr>
       <tr class="firmIntro">
-        <td colspan="4" class="profile">{{item.intro}}</td>
+        <td colspan="4" class="profile">
+          <textarea v-model="intro" :disabled="saveShow"></textarea>
+        </td>
       </tr>
     </table>
-    <div class="save" v-if="saveShow">
+    <div class="save" v-if="!saveShow">
       <el-button type="primary" @click="save">保存</el-button>
     </div>
   </div>
@@ -83,95 +105,45 @@
 export default {
   data () {
     return {
-      firmDetails: [{
-        name: '深圳市开元国际物流有限公司',
-        num: '25468484EFG',
-        general: '卫庄',
-        phone: '13544485564',
-        legal: '盖伦',
-        card: '360732198404516647',
-        phoneNum: '15844446484',
-        time: '1997.08.9',
-        project: '王者荣耀',
-        site: '王者峡谷',
-        intro: '单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行'
-      }],
-      saveShow: false,
+      name: '深圳市开元国际物流有限公司',
+      num: '25468484EFG',
+      general: '卫庄',
+      phone: '13544485564',
+      legal: '盖伦',
+      card: '360732198404516647',
+      phoneNum: '15844446484',
+      time: '1997.08.9',
+      project: '王者荣耀',
+      site: '王者峡谷',
+      intro: '单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行',
+      saveShow: true,
       firm: []
     }
   },
   methods: {
     compile () {
-      this.saveShow = true
+      this.saveShow = false
     },
     save () {
-      var cont = document.getElementsByClassName("content")
-      var contcol = document.getElementsByClassName("content-col")
-      var intor = document.getElementsByClassName("profile")
       var firm = {
-        name:cont[0].innerHTML,
-        num:cont[1].innerHTML,
-        general:cont[2].innerHTML,
-        phone:cont[3].innerHTML,
-        legal:cont[4].innerHTML,
-        card:cont[5].innerHTML,
-        phoneNum:cont[6].innerHTML,
-        time:cont[7].innerHTML,
-        project:contcol[0].innerHTML,
-        site:contcol[1].innerHTML,
-        intor:intor[0].innerHTML
+        name: this.name,
+        num: this.num,
+        general: this.general,
+        phone: this.phone,
+        legal: this.legal,
+        card: this.card,
+        phoneNum: this.phoneNum,
+        time: this.time,
+        project: this.project,
+        site: this.site,
+        intor: this.intro
       }
       console.log(firm)
       this.$message({
         message: '保存成功',
         type: 'success'
       })
-      this.saveShow = false
-    },
-    tableEdit (e) {
-      if (this.saveShow) {
-        var e = e || event
-        var target = e.target || e.srcElement
-        if (target.className == 'content' || target.className == 'content-col') {
-          var inp = document.createElement("input")
-          inp.classList.add("modification")
-          // inp.css({ width: "100%", height: "100%", border: "none", textAlign: "center", fontSize: "16px", fontWeight: "500"});
-          inp.style.width = "100%"
-          inp.style.height = "100%"
-          inp.style.border = "none"
-          inp.style.textAlign = "center"
-          inp.style.fontSize = "16px"
-          inp.style.fontWeight = "500"
-          inp.value = target.innerHTML
-          target.innerHTML = ''
-          target.append(inp)
-          inp.onblur = function () {
-            target.innerHTML = this.value
-            this.remove()
-          }
-        }
-        if (target.className == 'profile') {
-          var txt = document.createElement("textarea")
-          txt.style.display = "block"
-          txt.style.width = "100%"
-          txt.style.height = "100%"
-          txt.style.fontSize = "18px"
-          txt.style.lineHeight = "24px"
-          // txt.style.color = "#000";
-          // txt.style.fontWeight = "500";
-          txt.style.border = "none"
-          txt.style.outline = "none"
-          txt.value = target.innerHTML
-          target.innerHTML = ''
-          target.appendChild(txt)
-          txt.onblur = function () {
-            target.innerHTML = this.value
-            this.remove()
-          }
-        }
-      } else {
-        return
-      }
+      this.saveShow = true
     }
   }
 };
@@ -186,13 +158,30 @@ export default {
 }
 table {
   width: 100%;
+  td {
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+    input,textarea {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 16px;
+      border: none;
+      text-align: center;  
+      background: #fff;   
+      color: #000;
+    }
+    textarea{
+      font-size: 17px;
+      line-height: 24px;
+      padding: 10px;
+      color: black;
+      font-weight: 500;
+      text-align: left;
+    }
+  }
 }
-td {
-  height: 40px;
-  text-align: center;
-  overflow: hidden;
-}
-
 .table-title {
   width: 100%;
   background: #7aaae6;
@@ -205,7 +194,6 @@ td {
   }
   span:nth-child(2) {
     float: right;
-    margin-top: 3px;
   }
 }
 .has-background {
@@ -231,8 +219,7 @@ td {
 .firmIntro {
   min-height: 135px;
   td {
-    height: 335px;
-    padding: 10px;
+    height: 335px;    
     text-align: left;
     line-height: 24px;
     vertical-align: text-top;

@@ -21,9 +21,11 @@
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must">*</span>企业名称
+          <span class="must">*</span>项目名称
         </td>
-        <td colspan="3" width="35%">&nbsp;</td>
+        <td colspan="3" width="35%">
+          <input type="text" v-model="proName">
+        </td>
         <td class="has-background">
           <span class="must">*</span>小区名称
         </td>
@@ -95,7 +97,7 @@
       </tr>
       <tr>
         <td rowspan="4" class="has-background">
-          <span class="must"></span>维修部门          
+          <span class="must"></span>维修部门
         </td>
         <td class="has-background">
           <span class="must">*</span>负责人
@@ -139,6 +141,7 @@
 export default {
   data () {
     return {
+      proName: '',
       firmDetails: [{
         name: '深圳市开元国际物流有限公司',
         num: '25468484EFG',
@@ -233,11 +236,19 @@ export default {
 }
 table {
   width: 100%;
-}
-td {
-  height: 40px;
-  text-align: center;
-  overflow: hidden;
+  td {
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+    input {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 16px;
+      border: none;
+      text-align: center;
+    }
+  }
 }
 
 .table-title {

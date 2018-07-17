@@ -7,8 +7,8 @@
       </div>
       <div class="plot-btn">
         <div>
-          <el-button autofocus>基本概括</el-button>
-          <el-button>配套设施</el-button>
+          <el-button autofocus @click="generalization">基本概括</el-button>
+          <el-button @click="facility">配套设施</el-button>
           <el-button>配套人员</el-button>
           <el-button>业主委员会</el-button>
           <el-button>小区党组织</el-button>
@@ -30,7 +30,17 @@
 export default {
   data () {
     return {
-      
+
+    }
+  },
+  methods: {
+    generalization () {
+      var id = this.$route.params.id
+      this.$router.push({ path: '/information/community/details/' + id + '/generalization' })
+    },
+    facility () {
+      var id = this.$route.params.id
+      this.$router.push({ path: '/information/community/details/' + id + '/facility' })
     }
   }
 }

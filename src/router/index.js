@@ -52,6 +52,10 @@ const constantRouterMap = [
           path: 'generalization',
           component: () =>
             import('@/views/information/community/generalization')
+        },{
+          path: 'facility',
+          component: () =>
+            import('@/views/information/community/facility')
         }]
       }]
     }, {
