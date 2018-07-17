@@ -1,123 +1,150 @@
 <template>
-<div> 
-    <div class="table-header">
-      <h4 class="table-title">小区列表</h4>
-      <div class="table-title-slot">
-        <el-button type="warning" size="small">导出</el-button>
-        <el-button type="primary" size="small">新增</el-button>
-        <el-button type="danger" size="small">删除</el-button>
+<div>
+    <!-- 表格标题 -->
+    <template v-if="title.show">
+      <div class="table-header">
+        <h4 class="table-title" :class="[title.align ? 'is-' + title.align : null]">{{title.label}}</h4>
+        <template v-if="title.list && title.list.length">
+          <div class="table-title-slot">
+            <template v-for="(item, t) in title.list">
+              <el-button :type="item.type" size="small" :icon="item.icon" :key="t" @click.native.prevent="item.method">{{item.label}}</el-button>
+            </template>
+          </div>
+        </template>
       </div>
-    </div>
-    <el-table :data="table" style="width: 100%" border header-cell-class-name="default-bg">
-      <el-table-column v-for="(col, c) in columns" :prop="col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type">
+    </template>
+    <!-- 表格标题 end -->
+    <!-- 表格数据 -->
+    <el-table :data="list" style="width: 100%" border header-cell-class-name="default-bg"
+      @selection-change="handleSelectionChange">
+      <el-table-column v-if="isMultiple" type="selection" width="50" align="center"></el-table-column>
+      <el-table-column v-for="(col, c) in tableHeader" :prop="col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type">
           <template v-if="col.children">
               <el-table-column v-for="(ch,o) in col.children" :key="o" :label="ch.label" :prop="ch.name || ch.label"></el-table-column>
           </template>
           <template v-else-if="col.slot"  slot-scope="scope">
-              {{ scope.row.name }}
+            <template v-if="col.render">
+              <expand-dom :column="col" :row="scope.row" :render="col.render" :index="index"></expand-dom>
+            </template>
+            <template v-else>
+              <template v-if="col.formatter">
+                <span v-html="column.formatter(scope.row, col)"></span>
+              </template>
+              <template v-else>
+                <span>{{scope.row[col.prop]}}</span>
+              </template>
+            </template> 
+          </template>   
+      </el-table-column>
+      <!-- 按钮操作组 -->
+      <el-table-column v-if="operates.show && operates.list.length" label="操作" align="center" :width="operates.width">
+        <template slot-scope="scope">
+          <template v-for="(btn, key) in operates.list" >
+            <el-button :type="btn.type" :size="btn.type || 'medium'" :icon="btn.icon" :disabled="btn.disabled" :plain="btn.plain"  @click.native.prevent="btn.method(key, scope.row)" :key="key">
+              {{ btn.label }}
+            </el-button>
           </template>
-      </el-table-column>  
+        </template>
+        
+      </el-table-column> 
+      <!-- 按钮操作组 end-->
     </el-table>
+    <!-- 表格数据 end-->
+    <!-- 分页 -->
     <el-pagination :total="total" :current-page="listQuery.pageIndex" :page-size="listQuery.pageSize" layout="prev, pager, next, ->, jumper, slot, total" @current-change="handleCurrentChange" class="pagination">
       <slot>
         <span class="pagination__count">{{pageCount}}</span>
       </slot>
-    </el-pagination>   
+    </el-pagination> 
+    <!-- 分页 end -->
 </div>
 
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      table: [
-        {
-          index: "1",
-          name: "丽华佳园",
-          street: "福永街道",
-          station: "富华工作站",
-          houseWork: "物业服务企业",
-          person: "李安",
-          phone: "136-2342-2462",
-          completeness: "20%"
-        }
-      ],
-      align: "center",
-      isMultiple: true,
-      tableHeader: [
-        {
-          label: "序号",
-          name: "index",
-          width: 50
-        },
-        {
-          label: "小区名称",
-          name: "name",
-          width: 80
-        },
-        {
-          label: "所属街道办",
-          name: "street",
-          width: 90
-        },
-        {
-          label: "所属工作站",
-          name: "station",
-          width: 90
-        },
-        {
-          label: "物业服务企业",
-          name: "houseWork",
-          width: 160
-        },
-        {
-          label: "物业经理",
-          name: "person",
-          width: 80
-        },
-        {
-          label: "联系方式",
-          name: "phone",
-          width: 140
-        },
-        {
-          label: "信息完成度",
-          name: "completeness",
-          width: 100
-        },
-        {
-          label: "操作",
-          name: "查看详情",
-          width: 100
-        }
-      ],
-      listQuery: {
+  props:{
+    list: {
+      type: Array,
+      default: []
+    }, //表格数据
+    align: {
+      type: String,
+      default: 'center'
+    }, //对齐方式
+    isMultiple: {
+      type: Boolean,
+      default: false
+    }, //是否多选
+    tableHeader: {
+      type: Array,
+      default: []
+    }, //表头
+    listQuery: {
+      type: Object,
+      default: {
         pageIndex: 1,
         pageSize: 10
+      }
+    }, //分页参数
+    total: {
+      type: Number 
+    }, //总数
+    operates: {
+      type: Object,
+      default: {
+        show: false,
+        width: 150,
+        list: [] 
+      }
+    }, //列操作按钮
+    title: {
+      type: Object,
+      default: {
+        show: true,
+        align: 'left',
+        label: '',
+        list: []
+      }
+    } //表格标题
+  },
+  components: {
+    expandDom: {
+      functional: true,
+      props: {
+        row: Object,
+        render: Function,
+        index: Number,
+        column: {
+          type: Object,
+          default: null
+        }
       },
-      total: 50,
-      form:{}
+      render: (h, ctx) => {
+        const params = {
+          row: ctx.props.row,
+          index: ctx.props.index
+        }
+        if (ctx.props.column) params.column = ctx.props.column
+        return ctx.props.render(h, params)
+      }
     }
   },
-  computed:{
-      columns() {
-        if(this.isMultiple){
-            this.tableHeader.unshift({
-                type: 'selection',
-                width: 50
-            })   
-        }
-        return this.tableHeader 
-      },
-      pageCount() {
-        let count =  Math.ceil(this.total/this.listQuery.pageSize)
-        return `共${count}页、`
-      }
+  computed: {
+    pageCount() {
+      let count =  Math.ceil(this.total/this.listQuery.pageSize)
+      return `共${count}页、`
+    }
   },
   methods: {
-    handleCurrentChange(val) {
-      this.listQuery.pageIndex = val
+    // 切换页码
+    handleCurrentChange(index) {
+      this.listQuery.pageIndex = index
+      this.$emit('handleCurrentChange', index)
+    },
+    // 多行选中
+    handleSelectionChange(val) {
+      this.$emit('handleSelectionChange', val)
     }
   }
 };
