@@ -139,7 +139,7 @@ const constantRouterMap = [
     children: [{
       path: 'index',
       component: () =>
-        import('@/views/information/community/index'),
+        import ('@/views/layout/components/DefaultView'),
       name: 'transaction',
       meta: {
         icon: 'task',
@@ -150,94 +150,44 @@ const constantRouterMap = [
   {
     path: '/evaluation',
     component: Layout,
-    redirect: 'noredirect',
     alwaysShow: true,
     name: 'evaluation',
     meta: {
       icon: 'star',
       title: '星级评定'
-    },
-    children: [{
-      path: 'community',
-      name: 'community',
-      component: () =>
-        import('@/views/information/community/index'),
-      meta: {
-        title: '小区库'
-      }
-    }]
+    }
   }, {
     path: '/integrity',
     component: Layout,
-    redirect: 'noredirect',
     alwaysShow: true,
     meta: {
       icon: 'integrity',
       title: '诚信管理'
-    },
-    children: [{
-      path: 'community',
-      name: 'community',
-      component: () =>
-        import('@/views/information/community/index'),
-      meta: {
-        title: '小区库'
-      }
-    }]
+    }
   }, {
     path: '/administrative',
     component: Layout,
-    redirect: 'noredirect',
     alwaysShow: true,
     meta: {
       icon: 'administrative',
       title: '行政管理'
-    },
-    children: [{
-      path: 'community',
-      name: 'community',
-      component: () =>
-        import('@/views/information/community/index'),
-      meta: {
-        title: '小区库'
-      }
-    }]
+    }
   }, {
     path: '/committee',
     component: Layout,
-    redirect: 'noredirect',
     alwaysShow: true,
     meta: {
       icon: 'team',
       title: '业委会管理'
-    },
-    children: [{
-      path: 'community',
-      name: 'community',
-      component: () =>
-        import('@/views/information/community/index'),
-      meta: {
-        title: '小区库'
-      }
-    }]
+    }
   }, {
     path: '/statistics',
     component: Layout,
-    redirect: 'noredirect',
     alwaysShow: true,
     meta: {
       icon: 'statistics',
       title: '统计报表'
-    },
-    children: [{
-      path: 'community',
-      name: 'community',
-      component: () =>
-        import('@/views/information/community/index'),
-      meta: {
-        title: '小区库'
-      }
-    }]
+    }
   }
 ]
 

@@ -114,8 +114,16 @@ a:hover {
   &-slot{
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 10px;
     transform: translateY(-50%);
+    .el-button{
+      padding: 5px;
+      border-radius: 3px;
+      .svg-icon {
+        vertical-align: sub;
+        font-size: 14px;
+      }
+    } 
   }
 }
 
