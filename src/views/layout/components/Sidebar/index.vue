@@ -1,6 +1,6 @@
 <template>
   <scroll-bar>
-    <el-menu mode="vertical" :default-active="$route.path" unique-opened  background-color="#5276f0" :collapse="isCollapse" text-color="#fff" active-text-color="#e58500">
+    <el-menu mode="vertical" :default-active="routePath" unique-opened  background-color="#5276f0" :collapse="isCollapse" text-color="#fff" active-text-color="#e58500">
       <sidebar-item :routes="routes"></sidebar-item>
     </el-menu>
   </scroll-bar>
@@ -23,12 +23,13 @@ export default {
       return this.$router.options.routes
     },
     routePath () {
-      
       let arr = this.$route.path.split('/')
-      for(let a of arr){
-
+      let path
+      if (arr[1] != 'index') {
+        path  = '/' + arr[1] + '/' + arr[2] 
+      } else {
+        path  = '/' + arr[1]  
       }
-      let path = '/' + arr[1]
       return path
     },
     isCollapse () {

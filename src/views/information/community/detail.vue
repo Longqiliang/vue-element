@@ -6,7 +6,7 @@
         <span>企业详情</span>
       </div>
       <div class="plot-btn">
-        <div>
+        <div class="tabs">
           <el-button type="primary" v-for="(tab,t) in tabs" :key="t" @click="changeTab(t)" :plain="tab.plain">
             {{tab.label}}
           </el-button>
@@ -91,10 +91,14 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  .el-button {
-    + .el-button {
-      margin-left: 5px;
+  .tabs{
+    .el-button {
+      min-width: 110px;
+      + .el-button {
+        margin-left: 5px;
+      }
     }
   }
+  
 }
 </style>
