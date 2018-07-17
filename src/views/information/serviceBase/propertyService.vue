@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="query-title">
-      <el-input placeholder="请输入企业名称" v-model="input3" style="width:40%;">
-        <template slot="prepend">企业名称</template>
-      </el-input>
+      <div>
+        <el-input placeholder="请输入企业名称" v-model="input3">
+          <template slot="prepend">企业名称</template>
+        </el-input>
+      </div>
       <div>
         <el-button type="success">
           <svg-icon icon-class="del"></svg-icon>
@@ -64,7 +66,7 @@
       <slot>
         <span class="pagination__count">{{pageCount}}</span>
       </slot>
-      
+
     </el-pagination>
   </div>
 
@@ -117,41 +119,47 @@ export default {
     projectlib (id) {
       this.$router.push({ path: '/information/serviceBase/project/library/' + id })
     },
-    handleCurrentChange(val) {
+    handleCurrentChange (val) {
       this.listQuery.pageIndex = val
     }
   },
-  computed:{
-      columns() {
-        if(this.isMultiple){
-            this.tableHeader.unshift({
-                type: 'selection',
-                width: 50
-            })   
-        }
-        return this.tableHeader 
-      },
-      pageCount() {
-        let count =  Math.ceil(this.total/this.listQuery.pageSize)
-        return `共${count}页、`
+  computed: {
+    columns () {
+      if (this.isMultiple) {
+        this.tableHeader.unshift({
+          type: 'selection',
+          width: 50
+        })
       }
+      return this.tableHeader
+    },
+    pageCount () {
+      let count = Math.ceil(this.total / this.listQuery.pageSize)
+      return `共${count}页、`
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .query-title {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  div:nth-child(1){
+    width: 70%;
+  }
 }
 .service-list {
   margin-top: 20px;
   position: relative;
-  
 }
 .operation {
   position: absolute;
   top: 6px;
   right: 10px;
+  span {
+    font-size: 14px;
+  }
 }
 </style>

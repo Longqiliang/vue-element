@@ -6,6 +6,10 @@
           <span>基本概括</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
+            <el-button type="success" size="small" @click="compile">
+              <svg-icon icon-class="write"></svg-icon>
+              <span>编辑</span>
+            </el-button>
           </span>
         </td>
       </tr>
@@ -15,7 +19,7 @@
           <span class="must">*</span>小区名称
         </td>
         <td>
-          <input type="text">
+          <input type="text" v-model="public" :disabled="saveShow">
         </td>
         <td class="has-background">
           <span class="must">*</span>小区类型
@@ -32,7 +36,9 @@
         <td class="has-background">
           <span class="must">*</span>小区地址
         </td>
-        <td colspan="3">&nbsp;</td>
+        <td colspan="3">
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
@@ -50,7 +56,9 @@
         <td class="has-background">
           <span class="must">*</span>联系方式
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>物业服务类型
         </td>
@@ -66,97 +74,138 @@
         <td class="has-background">
           <span class="must">*</span>合同服务时间
         </td>
-        <td colspan="3">&nbsp;</td>
+        <td colspan="3">
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must">*</span>物业经理
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>联系方式
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must">*</span>入伙时间
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>总业人数
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must">*</span>占地面积
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>总建筑面积
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must"></span>计容积率建筑面积
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must"></span>不计容积率建筑面积
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must">*</span>公共场所面积
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>公共场所建筑
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must">*</span>物业管理用房面积
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>栋数
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must">*</span>总套数
         </td>
-        <td colspan="2">&nbsp;</td>
+        <td colspan="2">
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>入住套数
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>入住率
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must"></span>建筑绿盖率
         </td>
-        <td colspan="2">&nbsp;</td>
+        <td colspan="2">
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must"></span>建筑覆盖率
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must"></span>建筑容积率
         </td>
-        <td>&nbsp;</td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
       </tr>
     </table>
+    <div class="save" v-if="!saveShow">
+      <el-button type="primary" @click="save">保存</el-button>
+    </div>
   </div>
 </template>
 
@@ -164,11 +213,21 @@
 export default {
   data () {
     return {
-
+      saveShow: true,
+      public: ''
     }
   },
   methods: {
-
+    compile () {
+      this.saveShow = false
+    },
+    save () {
+      this.$message({
+        message: '保存成功',
+        type: 'success'
+      })
+      this.saveShow = true
+    }
   }
 };
 </script>
@@ -184,7 +243,7 @@ table {
   width: 100%;
   td {
     width: 14.2%;
-    height: 40px;
+    height: 36px;
     text-align: center;
     overflow: hidden;
     .genera {
@@ -195,12 +254,15 @@ table {
         text-align: center;
       }
     }
-    input{
+    input {
       display: block;
       width: 100%;
       height: 100%;
       border: none;
       text-align: center;
+      background: #fff;
+      font-size: 16px;
+      color: #000;
     }
   }
 }
@@ -208,7 +270,7 @@ table {
 .table-title {
   width: 100%;
   background: #7aaae6;
-  padding: 0 15px;
+  padding: 0 10px;
   span:nth-child(1) {
     color: #fff;
     font-weight: 600;
@@ -217,7 +279,6 @@ table {
   }
   span:nth-child(2) {
     float: right;
-    line-height: 40px;
   }
 }
 .has-background {
