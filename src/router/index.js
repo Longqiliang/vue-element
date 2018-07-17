@@ -64,12 +64,12 @@ const constantRouterMap = [
       children: [{
         path: 'index',
         component: () =>
-          import('@/views/information/propertyService')
+          import('@/views/information/serviceBase/propertyService')
       },
       {
         path: 'serviceDetails/:id',
         component: () =>
-          import('@/views/information/serviceDetails')
+          import('@/views/information/serviceBase/serviceDetails')
 
       },
       {
@@ -81,12 +81,12 @@ const constantRouterMap = [
         children: [{
           path: 'library/:id',
           component: () =>
-            import('@/views/information/projectLibrary')
+            import('@/views/information/serviceBase/projectLibrary')
         },
         {
           path: 'details/:id',
           component: () =>
-            import('@/views/information/projectDetails')
+            import('@/views/information/serviceBase/projectDetails')
 
         }]
 
