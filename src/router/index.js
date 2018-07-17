@@ -43,6 +43,16 @@ const constantRouterMap = [
         path: 'index',
         component: () =>
           import('@/views/table/community/index')
+      }, {
+        path: 'details/:id',
+        redirect: 'details/:id/generalization',
+        component: () =>
+          import('@/views/table/community/detail'),
+          children: [{
+            path: 'generalization',
+            component: () =>
+              import('@/views/table/community/generalization')
+          }]
       }]
     }, {
       path: 'serviceBase',

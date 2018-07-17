@@ -2,26 +2,26 @@
   <div>
     <div class="query-title">
       <div>
-        <el-input placeholder="请输入小区名称" v-model="input3">
+        <el-input placeholder="请输入小区名称" v-model="firmName">
           <template slot="prepend">小区名称</template>
         </el-input>
       </div>
       <div class="query-center">
-        <el-input v-model="input3" style="width:50%;">
+        <el-input v-model="startTime" style="width:50%;" id="border-right">
           <template slot="prepend">成立时间</template>
         </el-input>
-        <el-input v-model="input3" style="width:50%;">
+        <el-input v-model="endTime" style="width:50%;">
           <template slot="prepend">至</template>
         </el-input>
       </div>
       <div>
-        <el-input placeholder="请输入项目名称" v-model="input3">
+        <el-input placeholder="请输入项目名称" v-model="proName">
           <template slot="prepend">项目名称</template>
         </el-input>
       </div>
     </div>
     <div class="inquire">
-      <el-button type="success">
+      <el-button type="success" @click="empty">
         <svg-icon icon-class="del"></svg-icon>
         <span>清空</span>
       </el-button>
@@ -80,7 +80,10 @@ import $ from 'jquery'
 export default {
   data () {
     return {
-      input3: '',
+      firmName: '',
+      startTime: '',
+      endTime: '',
+      proName: '',
       tableData3: [{
         order: 1,
         name: '荣泰园',
@@ -111,6 +114,12 @@ export default {
     },
     handleCurrentChange (val) {
       this.listQuery.pageIndex = val
+    },
+    empty () {
+      this.firmName = ''
+      this.startTime = ''
+      this.endTime = ''
+      this.proName = ''
     }
   },
   computed: {

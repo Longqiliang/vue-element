@@ -96,14 +96,32 @@ export default {
         site: '王者峡谷',
         intro: '单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行'
       }],
-      saveShow: false
+      saveShow: false,
+      firm: []
     }
   },
   methods: {
     compile () {
-      this.saveShow = true;
+      this.saveShow = true
     },
     save () {
+      var cont = document.getElementsByClassName("content")
+      var contcol = document.getElementsByClassName("content-col")
+      var intor = document.getElementsByClassName("profile")
+      var firm = {
+        name:cont[0].innerHTML,
+        num:cont[1].innerHTML,
+        general:cont[2].innerHTML,
+        phone:cont[3].innerHTML,
+        legal:cont[4].innerHTML,
+        card:cont[5].innerHTML,
+        phoneNum:cont[6].innerHTML,
+        time:cont[7].innerHTML,
+        project:contcol[0].innerHTML,
+        site:contcol[1].innerHTML,
+        intor:intor[0].innerHTML
+      }
+      console.log(firm)
       this.$message({
         message: '保存成功',
         type: 'success'
@@ -112,43 +130,43 @@ export default {
     },
     tableEdit (e) {
       if (this.saveShow) {
-        var e = e || event;
-        var target = e.target || e.srcElement;
+        var e = e || event
+        var target = e.target || e.srcElement
         if (target.className == 'content' || target.className == 'content-col') {
-          var inp = document.createElement("input");
+          var inp = document.createElement("input")
           inp.classList.add("modification")
           // inp.css({ width: "100%", height: "100%", border: "none", textAlign: "center", fontSize: "16px", fontWeight: "500"});
-          inp.style.width = "100%";
-          inp.style.height = "100%";
-          inp.style.border = "none";
-          inp.style.textAlign = "center";
-          inp.style.fontSize = "16px";
-          inp.style.fontWeight = "500";
-          inp.value = target.innerHTML;
-          target.innerHTML = '';
+          inp.style.width = "100%"
+          inp.style.height = "100%"
+          inp.style.border = "none"
+          inp.style.textAlign = "center"
+          inp.style.fontSize = "16px"
+          inp.style.fontWeight = "500"
+          inp.value = target.innerHTML
+          target.innerHTML = ''
           target.append(inp)
           inp.onblur = function () {
-            target.innerHTML = this.value;
-            this.remove();
+            target.innerHTML = this.value
+            this.remove()
           }
         }
         if (target.className == 'profile') {
-          var txt = document.createElement("textarea");
-          txt.style.display = "block";
-          txt.style.width = "100%";
-          txt.style.height = "100%";
-          txt.style.fontSize = "18px";
-          txt.style.lineHeight = "24px";
+          var txt = document.createElement("textarea")
+          txt.style.display = "block"
+          txt.style.width = "100%"
+          txt.style.height = "100%"
+          txt.style.fontSize = "18px"
+          txt.style.lineHeight = "24px"
           // txt.style.color = "#000";
           // txt.style.fontWeight = "500";
-          txt.style.border = "none";
-          txt.style.outline = "none";
-          txt.value = target.innerHTML;
-          target.innerHTML = '';
-          target.appendChild(txt);
+          txt.style.border = "none"
+          txt.style.outline = "none"
+          txt.value = target.innerHTML
+          target.innerHTML = ''
+          target.appendChild(txt)
           txt.onblur = function () {
-            target.innerHTML = this.value;
-            this.remove();
+            target.innerHTML = this.value
+            this.remove()
           }
         }
       } else {

@@ -148,6 +148,20 @@ a:hover {
     }
   }
 }
+.main-container .query-title{
+  .el-input-group__prepend{
+    background-color: $defalutBg;
+    border: 1px solid $border-color-lighter;
+    color: $black;
+  }
+  .el-input__inner{
+    border: 1px solid $border-color-lighter;
+    border-left: none;
+  }
+  #border-right{
+    border-right: none;
+  }
+}
 .input-group{
   position: relative;
   display: table;

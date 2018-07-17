@@ -67,7 +67,7 @@
     <div class="table-header">
       <h4 class="table-title">小区列表</h4>
       <div class="table-title-slot">
-        <el-button type="warning" size="small">导出</el-button>
+        <el-button type="warning" size="small" @click="plotDetails(0)">导出</el-button>
         <el-button type="primary" size="small">新增</el-button>
         <el-button type="danger" size="small">删除</el-button>
       </div>
@@ -184,7 +184,10 @@ export default {
   methods: {
     handleCurrentChange(val) {
       this.listQuery.pageIndex = val
-    }
+    },
+    plotDetails (id) {
+      this.$router.push({ path: '/information/community/details/' + id })
+    },
   }
 };
 </script>

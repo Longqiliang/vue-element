@@ -109,11 +109,12 @@ export default {
   methods: {
     handleSelectionChange (val) {
       this.multipleSelection = val;
+      console.log(val)
     },
-    jumpToDetail (id) {screenX
+    jumpToDetail (id) {
       this.$router.push({ path: '/information/serviceBase/serviceDetails/' + id })
     },
-    projectlib (id) {screenX
+    projectlib (id) {
       this.$router.push({ path: '/information/serviceBase/project/library/' + id })
     },
     handleCurrentChange(val) {
