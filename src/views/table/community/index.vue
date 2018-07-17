@@ -1,6 +1,5 @@
 <template>
 <div>
-  <el-form :model="form" ref="communityForm" >
   <el-form ref="communityForm" >
     <el-row type="flex" class="form-row">
       <el-col :span="8">
@@ -64,37 +63,8 @@
     </div>
   </el-form>
     
-<<<<<<< HEAD
-  <div>
-    <div class="table-header">
-      <h4 class="table-title">小区列表</h4>
-      <div class="table-title-slot">
-        <el-button type="warning" size="small" @click="plotDetails(0)">导出</el-button>
-        <el-button type="primary" size="small">新增</el-button>
-        <el-button type="danger" size="small">删除</el-button>
-      </div>
-    </div>
-    <el-table :data="table" style="width: 100%" border header-cell-class-name="default-bg">
-      <el-table-column v-for="(col, c) in columns" :prop="col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type">
-          <template v-if="col.children">
-              <el-table-column v-for="(ch,o) in col.children" :key="o" :label="ch.label" :prop="ch.name || ch.label"></el-table-column>
-          </template>
-          <template v-else-if="col.slot"  slot-scope="scope">
-              {{ scope.row.name }}
-          </template>
-      </el-table-column>  
-    </el-table>
-    <el-pagination :total="total" :current-page="listQuery.pageIndex" :page-size="listQuery.pageSize" layout="prev, pager, next, ->, jumper, slot, total" @current-change="handleCurrentChange" class="pagination">
-      <slot>
-        <span class="pagination__count">{{pageCount}}</span>
-      </slot>
-    </el-pagination>
-  </div>  
-    
-=======
    <BTable v-bind="table" @handleSelectionChange="handleSelectionChange"  @handleCurrentChange="handleCurrentChange" />
   <BTable v-bind="table" @handleSelectionChange="handleSelectionChange"  @handleCurrentChange="handleCurrentChange" />
->>>>>>> 15ef301504fe12c5a84d36ebd0811c872be863bc
 </div>
 
 </template>
@@ -202,17 +172,11 @@ export default {
   },
   methods: {
     handleCurrentChange(val) {
-<<<<<<< HEAD
-      this.listQuery.pageIndex = val
-    },
-    plotDetails (id) {
-      this.$router.push({ path: '/information/community/details/' + id })
-    },
-=======
       this.table.listQuery.pageIndex = val
     },
-    handleDelete(index, row) {
-      console.log(index, row)
+    handleDelete(id, row) {
+      console.log(id, row)
+      this.$router.push({ path: '/information/community/details/'+id+'/generalization' })
     },
     handleSelectionChange(val) {
       this.table.multipleSelection = val
@@ -226,7 +190,6 @@ export default {
         console.log(this.table.multipleSelection)
       })
     }
->>>>>>> 15ef301504fe12c5a84d36ebd0811c872be863bc
   }
 };
 </script>
