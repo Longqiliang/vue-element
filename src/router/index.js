@@ -11,7 +11,7 @@ const constantRouterMap = [
     children: [{
       path: 'index',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       name: 'index',
       meta: {
         icon: 'index',
@@ -38,11 +38,15 @@ const constantRouterMap = [
         title: '小区库'
       },
       component: () =>
-        import('@/views/table/main'),
+        import('@/views/layout/components/DefaultView'),
       children: [{
         path: 'index',
         component: () =>
-          import('@/views/table/community/index')
+          import('@/views/information/community/index')
+      }, {
+        path: 'detail',
+        component: () =>
+          import('@/views/information/community/detail')
       }]
     }, {
       path: 'serviceBase',
@@ -50,7 +54,7 @@ const constantRouterMap = [
       redirect: 'serviceBase/index',
       childHidden: true,
       component: () =>
-        import('@/views/table/main'),
+        import('@/views/layout/components/DefaultView'),
       children: [{
         path: 'index',
         component: () =>
@@ -67,7 +71,7 @@ const constantRouterMap = [
         redirect: 'project/library/:id',
         childHidden: true,
         component: () =>
-          import('@/views/table/main'),
+          import('@/views/layout/components/DefaultView'),
         children: [{
           path: 'library/:id',
           component: () =>
@@ -88,7 +92,7 @@ const constantRouterMap = [
       path: 'ownerBase',
       name: 'ownerBase',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '业主库'
       }
@@ -96,7 +100,7 @@ const constantRouterMap = [
       path: 'manageBase',
       name: 'manageBase',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '管理架构库'
       }
@@ -104,7 +108,7 @@ const constantRouterMap = [
       path: 'policyBase',
       name: 'policyBase',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '政策法规库'
       }
@@ -112,7 +116,7 @@ const constantRouterMap = [
       path: 'integrityBase',
       name: 'integrityBase',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '诚信库'
       }
@@ -125,7 +129,7 @@ const constantRouterMap = [
     children: [{
       path: 'index',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       name: 'transaction',
       meta: {
         icon: 'task',
@@ -147,7 +151,7 @@ const constantRouterMap = [
       path: 'community',
       name: 'community',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '小区库'
       }
@@ -165,7 +169,7 @@ const constantRouterMap = [
       path: 'community',
       name: 'community',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '小区库'
       }
@@ -183,7 +187,7 @@ const constantRouterMap = [
       path: 'community',
       name: 'community',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '小区库'
       }
@@ -201,7 +205,7 @@ const constantRouterMap = [
       path: 'community',
       name: 'community',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '小区库'
       }
@@ -219,7 +223,7 @@ const constantRouterMap = [
       path: 'community',
       name: 'community',
       component: () =>
-        import('@/views/table/community/index'),
+        import('@/views/information/community/index'),
       meta: {
         title: '小区库'
       }
