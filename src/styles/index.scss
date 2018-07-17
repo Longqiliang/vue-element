@@ -7,13 +7,14 @@ body,html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: "Microsoft YaHei",
-  Helvetica,
-  Arial,  
-  sans-serif;
+  font-family: "Microsoft YaHei";
+
   margin: 0;
   padding: 0;
   height: 100%;
+}
+button{
+  font-family: "Microsoft YaHei";
 }
 body.is-component,
 html.is-component{
@@ -89,17 +90,49 @@ a:hover {
     overflow-x: auto;
   }
 }
+// table样式调整
 .main-container{
+  .table-group-title{
+    color: #fff;
+    padding: 0 10px;
+    background-color: #7aaae6;
+    h3{
+      height: 40px;
+      margin: 0;
+      line-height: 40px; 
+    }
+  }
+  .table-item{
+    .table-header{
+      background-color: #b9d1ef;
+    }
+    + .table-item{
+      margin-top: 18px;
+    }
+  }
   .el-table{
     font-size: 16px;
     thead{
       color: #187ab9;
     }
+    td{
+      padding: 8px 0;
+      .el-button{
+        &--text{
+          font-size: 14px;
+          padding: 0;
+        }
+      }  
+    }
+    &__body{
+      tr:nth-child(even){
+        background-color: $defalutBg;
+      }
+    }
   } 
 }
-//table 
 .table-header{
-  height: 40px;
+  height: 50px;
   padding: 0 10px;
   border: 1px solid $border-color-lighter;
   border-bottom: none;
@@ -109,19 +142,30 @@ a:hover {
 .table-title {
   margin: 0;
   font-size: 18px;
-  line-height: 40px;
+  line-height: 50px;
   font-weight: normal;
+  &.is-left{
+    text-align: left;
+  }
+  &.is-right {
+    text-align: right;
+  }
+  &.is-center {
+    text-align: center;
+    font-weight: bold;
+  }
   &-slot{
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
     .el-button{
-      padding: 5px;
+      font-size: 16px;
+      padding: 7px 12px;
       border-radius: 3px;
       .svg-icon {
         vertical-align: sub;
-        font-size: 14px;
+        font-size: 16px;
       }
     } 
   }
@@ -204,10 +248,10 @@ a:hover {
   text-align: center;
   padding: 10px 0;
   .el-button{
-    font-size: 20px;
+    font-size: 18px;
     .svg-icon {
       vertical-align: sub;
-      font-size: 24px;
+      font-size: 22px;
     }
   }
   

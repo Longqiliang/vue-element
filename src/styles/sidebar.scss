@@ -42,7 +42,7 @@
       border: none;
       // width: 100%;
       &-item {
-        font-size: 22px;
+        font-size: 20px;
         height: 48px;
         line-height: 48px;
         // padding: 0 15px;
@@ -55,7 +55,7 @@
       }
       &__title {
         background-color: inherit!important;
-        font-size: 22px;
+        font-size: 20px;
         height: 48px;
         line-height: 48px;
         padding: 0 15px;
@@ -135,7 +135,7 @@
   .nest-menu .el-submenu>.el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: 180px !important;
-    font-size: 20px;
+    font-size: 18px;
     &:hover {
       color: $menuHover !important;
     }

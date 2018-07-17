@@ -7,12 +7,20 @@
         <template v-if="title.list && title.list.length">
           <div class="table-title-slot">
             <template v-for="(item, t) in title.list">
-              <el-button :type="item.type" :size="item.size || 'mini'" :icon="item.icon" :key="t" @click.native.prevent="item.method">
-                <template v-if="item.svg">
-                  <svg-icon :icon-class="item.svg"></svg-icon>
-                </template>
-                {{item.label}}
-              </el-button>
+              <template v-if="item.type">
+                <el-button :type="item.type" :size="item.size || 'medium'" :icon="item.icon" :key="t" @click.native.prevent="item.method">
+                  <template v-if="item.svg">
+                    <svg-icon :icon-class="item.svg"></svg-icon>
+                  </template>
+                  {{item.label}}
+                </el-button>
+              </template>
+              <template v-else>
+                <span :key="t">
+                  <svg-icon :icon-class="item.svg" v-if="item.svg" ></svg-icon>
+                  {{item.label}}
+                </span>
+              </template>
             </template>
           </div>
         </template>
@@ -23,22 +31,21 @@
     <el-table :data="list" style="width: 100%" border header-cell-class-name="default-bg"
       @selection-change="handleSelectionChange">
       <el-table-column v-if="isMultiple" type="selection" width="50" align="center"></el-table-column>
-      <el-table-column v-for="(col, c) in tableHeader" :prop="col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type">
-          <template v-if="col.children">
+      <el-table-column v-for="(col, c) in tableHeader" :prop="col.slot? null : col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type">
+          <!-- <template v-if="col.children">
               <el-table-column v-for="(ch,o) in col.children" :key="o" :label="ch.label" :prop="ch.name || ch.label"></el-table-column>
-          </template>
-          <template v-else-if="col.slot"  slot-scope="scope">
+          </template> -->
+
+          <template slot-scope="scope">
             <template v-if="col.render">
               <expand-dom :column="col" :row="scope.row" :render="col.render" :index="index"></expand-dom>
             </template>
-            <template v-else>
-              <template v-if="col.formatter">
-                <span v-html="column.formatter(scope.row, col)"></span>
-              </template>
-              <template v-else>
-                <span>{{scope.row[col.prop]}}</span>
-              </template>
+            <template v-else-if="col.formatter">
+              <span v-html="col.formatter(scope.row, col)"></span>
             </template> 
+            <template v-else>
+              <span>{{scope.row[col.name]}}</span>
+            </template>
           </template>   
       </el-table-column>
       <!-- 按钮操作组 -->
@@ -59,11 +66,13 @@
     </el-table>
     <!-- 表格数据 end-->
     <!-- 分页 -->
-    <el-pagination :total="total" :current-page="listQuery.pageIndex" :page-size="listQuery.pageSize" layout="prev, pager, next, ->, jumper, slot, total" @current-change="handleCurrentChange" class="pagination">
-      <slot>
-        <span class="pagination__count">{{pageCount}}</span>
-      </slot>
-    </el-pagination> 
+    <template v-if="total">
+      <el-pagination :total="total" :current-page="listQuery.pageIndex" :page-size="listQuery.pageSize" layout="prev, pager, next, ->, jumper, slot, total" @current-change="handleCurrentChange" class="pagination">
+        <slot>
+          <span class="pagination__count">{{pageCount}}</span>
+        </slot>
+      </el-pagination> 
+    </template>
     <!-- 分页 end -->
 </div>
 
@@ -74,7 +83,9 @@ export default {
   props:{
     list: {
       type: Array,
-      default: []
+      default() {
+        return []
+      } 
     }, //表格数据
     align: {
       type: String,
@@ -86,33 +97,41 @@ export default {
     }, //是否多选
     tableHeader: {
       type: Array,
-      default: []
+      default() {
+        return []
+      } 
     }, //表头
     listQuery: {
       type: Object,
-      default: {
-        pageIndex: 1,
-        pageSize: 10
-      }
+      default() {
+        return {
+          pageIndex: 1,
+          pageSize: 10
+        }
+      } 
     }, //分页参数
     total: {
       type: Number 
     }, //总数
     operates: {
       type: Object,
-      default: {
-        show: false,
-        width: 150,
-        list: [] 
+      default() {
+        return {
+         show: false,
+          width: 150,
+          list: [] 
+        }
       }
     }, //列操作按钮
     title: {
       type: Object,
-      default: {
-        show: true,
-        align: 'left',
-        label: '',
-        list: []
+      default() {
+        return {
+          show: true,
+          align: 'left',
+          label: '',
+          list: []
+        }
       }
     } //表格标题
   },

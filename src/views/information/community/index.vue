@@ -87,6 +87,96 @@ export default {
             person: "李安",
             phone: "136-2342-2462",
             completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
+          },
+          {
+            index: "1",
+            name: "丽华佳园",
+            street: "福永街道",
+            station: "富华工作站",
+            houseWork: "物业服务企业",
+            person: "李安",
+            phone: "136-2342-2462",
+            completeness: "20%"
           }
         ],
         isMultiple: true,
@@ -181,8 +271,7 @@ export default {
           ]
         },
         multipleSelection: [] //多行选中
-      },
-      
+      }
     }
   },
   methods: {
@@ -190,7 +279,6 @@ export default {
       this.table.listQuery.pageIndex = val
     },
     handleDetail(id, row) {
-      console.log(id, row)
       this.$router.push({ path: '/information/community/details/'+id+'/generalization' })
     },
     handleSelectionChange(val) {
