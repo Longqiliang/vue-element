@@ -7,14 +7,10 @@
       </div>
       <div class="plot-btn">
         <div>
-<<<<<<< HEAD
           <el-button type="primary" v-for="(tab,t) in tabs" :key="t" @click="changeTab(t)" :plain="tab.plain">
             {{tab.label}}
           </el-button>
           <!-- <el-button :plain="true" type="primary">基本概括</el-button>
-=======
-          <el-button autofocus>基本概括</el-button>
->>>>>>> 1e411cd6a32383236943fe1cc2fc66e7b23b671d
           <el-button>配套设施</el-button>
           <el-button>配套人员</el-button>
           <el-button>业主委员会</el-button>
@@ -37,7 +33,6 @@
 export default {
   data () {
     return {
-<<<<<<< HEAD
       tabs: [
         {
           label: '基本概况',
@@ -75,9 +70,6 @@ export default {
           this.tabs[index].plain = true
         }
       }
-=======
-      
->>>>>>> 1e411cd6a32383236943fe1cc2fc66e7b23b671d
     }
   }
 }
