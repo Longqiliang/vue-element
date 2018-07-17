@@ -173,8 +173,9 @@ export default {
     handleCurrentChange(val) {
       this.table.listQuery.pageIndex = val
     },
-    handleDelete(index, row) {
-      console.log(index, row)
+    handleDelete(id, row) {
+      console.log(id, row)
+      this.$router.push({ path: '/information/community/details/'+id+'/generalization' })
     },
     handleSelectionChange(val) {
       this.table.multipleSelection = val

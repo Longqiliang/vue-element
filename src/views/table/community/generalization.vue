@@ -1,132 +1,84 @@
 <template>
   <div>
-    <div class="details-top">
-      <div class="firm-details">
-        <svg-icon icon-class="search"></svg-icon>
-        <span>项目详情</span>
-      </div>
-      <el-button type="warning">
-        <svg-icon icon-class="export"></svg-icon>
-        <span>导出</span>
-      </el-button>
-    </div>
     <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="8" class="table-title">
-          <span>项目详情</span>
+        <td colspan="7" class="table-title">
+          <span>基本概括</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
           </span>
         </td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>企业名称
-        </td>
-        <td colspan="3" width="35%">&nbsp;</td>
-        <td class="has-background">
-          <span class="must">*</span>小区名称
-        </td>
-        <td colspan="3" width="35%">&nbsp;</td>
+        <td colspan="3" rowspan="10"></td>
+        <td class="has-background"></td>
+        <td></td>
+        <td class="has-background"></td>
+        <td></td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>地址
-        </td>
-        <td colspan="3" width="35%">&nbsp;</td>
-        <td class="has-background">
-          <span class="must">*</span>成立时间
-        </td>
-        <td colspan="3" width="35%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td colspan="3">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="8" class="has-background">
-          <span class="must"></span>项目人员配置
-        </td>
+        <td class="has-background">&nbsp;</td>
+        <td colspan="3">&nbsp;</td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>物业经理
-        </td>
-        <td colspan="2" width="21%">&nbsp;</td>
-        <td class="has-background">
-          <span class="must">*</span>身份证号
-        </td>
-        <td colspan="2" width="21%">&nbsp;</td>
-        <td class="has-background">
-          <span class="must">*</span>联系电话
-        </td>
-        <td width="21%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-        <td rowspan="4" class="has-background">
-          <span class="must"></span>安全部门
-        </td>
-        <td class="has-background">
-          <span class="must">*</span>负责人
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
-        <td colspan="2" rowspan="4">
-          <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
-            <i class="el-icon-plus"></i>
-          </el-upload>
-          <el-dialog :visible.sync="dialogVisible">
-            <img width="100%" :src="dialogImageUrl" alt="">
-          </el-dialog>
-        </td>
+        <td class="has-background">&nbsp;</td>
+        <td colspan="3">&nbsp;</td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>身份证号
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>联系电话
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>具体人数
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-        <td rowspan="4" class="has-background">
-          <span class="must"></span>维修部门          
-        </td>
-        <td class="has-background">
-          <span class="must">*</span>负责人
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
-        <td colspan="2" rowspan="4">
-          <el-upload action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
-            <i class="el-icon-plus"></i>
-          </el-upload>
-          <el-dialog :visible.sync="dialogVisible">
-            <img width="100%" :src="dialogImageUrl" alt="">
-          </el-dialog>
-        </td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>身份证号
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>联系电话
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td colspan="2">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>具体人数
-        </td>
-        <td colspan="4" width="47%">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td colspan="2">&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="has-background">&nbsp;</td>
+        <td>&nbsp;</td>
       </tr>
     </table>
     <div class="save" v-if="saveShow">
@@ -233,11 +185,12 @@ export default {
 }
 table {
   width: 100%;
-}
-td {
-  height: 40px;
-  text-align: center;
-  overflow: hidden;
+  td {
+    width: 14.2%;
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+  }
 }
 
 .table-title {
@@ -256,7 +209,7 @@ td {
   }
 }
 .has-background {
-  width: 12.7%;
+  width: 14.2%;
   background: #b9d1ef;
 }
 .must {
@@ -273,16 +226,6 @@ td {
     text-align: center;
     font-size: 16px;
     font-weight: 500;
-  }
-}
-.firmIntro {
-  min-height: 135px;
-  td {
-    height: 335px;
-    padding: 10px;
-    text-align: left;
-    line-height: 24px;
-    vertical-align: text-top;
   }
 }
 .save {
