@@ -144,7 +144,7 @@ export default {
               label: '查看详情',
               type: 'text',
               method: (index, row) => {
-                this.handleDelete(index, row)
+                this.handleDetail(index, row)
               }
             }
           ]
@@ -155,9 +155,25 @@ export default {
           label: '小区列表',
           list: [
             {
+              label: '导出',
+              type: 'warning',
+              svg: 'export',
+              method:() => {
+
+              }
+            },
+            {
+              label: '新增',
+              type: 'primary',
+              svg: 'add',
+              method:() => {
+
+              }
+            },
+            {
               label: '删除',
               type: 'danger',
-              native: true,
+              svg: 'remove',
               method:(index, row) => {
                 this.handleSelectionRemove()
               } 
@@ -173,7 +189,7 @@ export default {
     handleCurrentChange(val) {
       this.table.listQuery.pageIndex = val
     },
-    handleDelete(id, row) {
+    handleDetail(id, row) {
       console.log(id, row)
       this.$router.push({ path: '/information/community/details/'+id+'/generalization' })
     },
@@ -187,6 +203,8 @@ export default {
         type: 'warning'
       }).then(() => {
         console.log(this.table.multipleSelection)
+      }).catch((err) => {
+        console.log(err)
       })
     }
   }

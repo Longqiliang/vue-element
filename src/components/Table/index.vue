@@ -7,7 +7,12 @@
         <template v-if="title.list && title.list.length">
           <div class="table-title-slot">
             <template v-for="(item, t) in title.list">
-              <el-button :type="item.type" size="small" :icon="item.icon" :key="t" @click.native.prevent="item.method">{{item.label}}</el-button>
+              <el-button :type="item.type" :size="item.size || 'mini'" :icon="item.icon" :key="t" @click.native.prevent="item.method">
+                <template v-if="item.svg">
+                  <svg-icon :icon-class="item.svg"></svg-icon>
+                </template>
+                {{item.label}}
+              </el-button>
             </template>
           </div>
         </template>
@@ -41,6 +46,9 @@
         <template slot-scope="scope">
           <template v-for="(btn, key) in operates.list" >
             <el-button :type="btn.type" :size="btn.type || 'medium'" :icon="btn.icon" :disabled="btn.disabled" :plain="btn.plain"  @click.native.prevent="btn.method(key, scope.row)" :key="key">
+              <template v-if="btn.svg">
+                <svg-icon :icon-class="btn.svg"></svg-icon>
+              </template>
               {{ btn.label }}
             </el-button>
           </template>
