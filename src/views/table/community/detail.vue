@@ -7,7 +7,7 @@
       </div>
       <div class="plot-btn">
         <div>
-          <el-button>基本概括</el-button>
+          <el-button autofocus>基本概括</el-button>
           <el-button>配套设施</el-button>
           <el-button>配套人员</el-button>
           <el-button>业主委员会</el-button>
@@ -30,7 +30,7 @@
 export default {
   data () {
     return {
-
+      
     }
   }
 }
