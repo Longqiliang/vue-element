@@ -26,6 +26,8 @@
 
 <script>
 import BTable from '@/components/Table'
+import FileSaver from 'file-saver'
+import XLSX from 'xlsx'
 export default {
   components: {
     BTable
@@ -127,7 +129,7 @@ export default {
               type: 'warning',
               svg: 'export',
               method: () => {
-
+                this.export()
               }
             },
             {
@@ -163,8 +165,8 @@ export default {
     projectlib () {
       var val = this.table.multipleSelection
       if (val.length == 1) {
-         this.$router.push({ path: '/information/serviceBase/project/library/' + val[0].index })
-      } else {       
+        this.$router.push({ path: '/information/serviceBase/project/library/' + val[0].index })
+      } else {
         this.$message({
           message: '请选择一个对应项目',
           type: 'warning'
@@ -184,6 +186,19 @@ export default {
       }).catch((err) => {
         console.log(err)
       })
+    },
+    exportExcel () {
+      /* generate workbook object from table */
+      var wb = XLSX.utils.table_to_book(document.querySelector('.el-table'))
+      /* get binary string as output */
+      var wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'array' })
+      try {
+        FileSaver.saveAs(new Blob([wbout], { type: 'application/octet-stream' }), 'sheetjs.xlsx')
+      } catch (e) { if (typeof console !== 'undefined') console.log(e, wbout) }
+      return wbout
+    },
+    export () {
+      this.exportExcel()
     }
   }
 }
