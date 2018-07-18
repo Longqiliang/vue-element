@@ -2,33 +2,20 @@
   <div>
     <div class="query-title">
       <div>
-        <el-input placeholder="请输入小区名称" v-model="firmName">
-          <template slot="prepend">小区名称</template>
-        </el-input>
-      </div>
-      <div class="query-center">
-        <el-input v-model="startTime" id="border-right">
-          <template slot="prepend">成立时间</template>
-        </el-input>
-        <el-input v-model="endTime">
-          <template slot="prepend">至</template>
+        <el-input placeholder="请输入企业名称" v-model="input3">
+          <template slot="prepend">企业名称</template>
         </el-input>
       </div>
       <div>
-        <el-input placeholder="请输入项目名称" v-model="proName">
-          <template slot="prepend">项目名称</template>
-        </el-input>
+        <el-button type="success">
+          <svg-icon icon-class="del"></svg-icon>
+          <span>清空</span>
+        </el-button>
+        <el-button type="primary">
+          <svg-icon icon-class="search"></svg-icon>
+          <span>查询</span>
+        </el-button>
       </div>
-    </div>
-    <div class="inquire">
-      <el-button type="success" @click="empty">
-        <svg-icon icon-class="del"></svg-icon>
-        <span>清空</span>
-      </el-button>
-      <el-button type="primary">
-        <svg-icon icon-class="search"></svg-icon>
-        <span>查询</span>
-      </el-button>
     </div>
     <div class="service-list">
       <BTable v-bind="table" @handleSelectionChange="handleSelectionChange" @handleCurrentChange="handleCurrentChange" />
@@ -45,39 +32,36 @@ export default {
   },
   data () {
     return {
-      firmName: '',
-      startTime: '',
-      endTime: '',
-      proName: '',
+      input3: '',
       table: {
         list: [
           {
             index: "1",
             name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            street: "7",
             station: '李安',
-            phone: "136-2342-2462",
+            phone: "136-2342-2462"
           },
           {
             index: "2",
             name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            street: "7",
             station: '李安',
-            phone: "136-2342-2462",
+            phone: "136-2342-2462"
           },
           {
             index: "3",
             name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            street: "7",
             station: '李安',
-            phone: "136-2342-2462",
+            phone: "136-2342-2462"
           },
           {
             index: "4",
             name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            street: "7",
             station: '李安',
-            phone: "136-2342-2462",
+            phone: "136-2342-2462"
           }
         ],
         isMultiple: true,
@@ -88,17 +72,17 @@ export default {
             width: 100
           },
           {
-            label: "小区名称",
+            label: "企业名称",
             name: "name",
             width: 250
           },
           {
-            label: "合同服务时间",
+            label: "宝安管理项目数量",
             name: "street",
-            width: 200
+            width: 100
           },
           {
-            label: "物业经理",
+            label: "法人",
             name: "station",
             width: 200
           },
@@ -131,9 +115,25 @@ export default {
           label: '物业服务企业列表列表',
           list: [
             {
+              label: '查看项目详情',
+              type: 'danger',
+              svg: '',
+              method: (index, row) => {
+                this.projectlib()
+              }
+            },
+            {
               label: '导出',
               type: 'warning',
               svg: 'export',
+              method: () => {
+
+              }
+            },
+            {
+              label: '新增',
+              type: 'primary',
+              svg: 'add',
               method: () => {
 
               }
@@ -153,18 +153,23 @@ export default {
     }
   },
   methods: {
-    empty () {
-      this.firmName = ''
-      this.startTime = ''
-      this.endTime = ''
-      this.proName = ''
-    },
     handleCurrentChange (val) {
       this.table.listQuery.pageIndex = val
     },
     handleDetail (id, row) {
       console.log(row.index)
-      this.$router.push({ path: '/information/serviceBase/project/details/' + row.index })
+      this.$router.push({ path: '/information/serviceBase/serviceDetails/' + row.index })
+    },
+    projectlib () {
+      var val = this.table.multipleSelection
+      if (val.length == 1) {
+         this.$router.push({ path: '/information/serviceBase/project/library/' + val[0].index })
+      } else {       
+        this.$message({
+          message: '请选择一个对应项目',
+          type: 'warning'
+        })
+      }
     },
     handleSelectionChange (val) {
       this.table.multipleSelection = val
@@ -186,11 +191,11 @@ export default {
 
 <style lang="scss" scoped>
 .query-title {
-  display: flex;
   width: 100%;
-  .query-center {
-    display: flex;
-    margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  div:nth-child(1) {
+    width: 70%;
   }
 }
 .service-list {
@@ -201,11 +206,8 @@ export default {
   position: absolute;
   top: 6px;
   right: 10px;
-}
-.inquire {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  span {
+    font-size: 14px;
+  }
 }
 </style>

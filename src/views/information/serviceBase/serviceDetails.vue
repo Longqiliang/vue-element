@@ -10,9 +10,9 @@
         <span>导出</span>
       </el-button>
     </div>
-    <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="4" class="table-title">
+        <td colspan="4" class="table-title-top">
           <span>企业详情</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
@@ -146,7 +146,7 @@ export default {
       this.saveShow = true
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -158,10 +158,12 @@ export default {
 }
 table {
   width: 100%;
+  border-collapse: collapse;
   td {
     height: 40px;
     text-align: center;
     overflow: hidden;
+    border: 1px #649efc solid;
     input,textarea {
       display: block;
       width: 100%;
@@ -182,7 +184,7 @@ table {
     }
   }
 }
-.table-title {
+.table-title-top {
   width: 100%;
   background: #7aaae6;
   padding: 0 15px;
@@ -193,6 +195,7 @@ table {
     line-height: 40px;
   }
   span:nth-child(2) {
+    margin-top: 3px;
     float: right;
   }
 }
