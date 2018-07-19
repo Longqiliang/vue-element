@@ -78,7 +78,7 @@ export default {
   data () {
     return {
       input3: '',
-      align: "center",
+      align: 'center',
       tableData3: [{
         order: 1,
         name: '深圳市开元国际物流有限公司',
@@ -110,7 +110,7 @@ export default {
   },
   methods: {
     handleSelectionChange (val) {
-      this.multipleSelection = val;
+      this.multipleSelection = val
       console.log(val)
     },
     jumpToDetail (id) {

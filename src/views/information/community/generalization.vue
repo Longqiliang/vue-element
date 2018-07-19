@@ -229,7 +229,7 @@ export default {
       this.saveShow = true
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -172,7 +172,7 @@ export default {
       this.saveShow = false
     },
     handleRemove (file, fileList) {
-      console.log(file, fileList);
+      console.log(file, fileList)
     },
     handlePictureCardPreview (file) {
       this.dialogImageUrl = file.url
@@ -224,7 +224,7 @@ export default {
     //   }
     // }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

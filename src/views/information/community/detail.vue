@@ -57,7 +57,7 @@ export default {
         {
           label: '其他',
           plain: true
-        },
+        }
       ]
     }
   },
@@ -68,7 +68,7 @@ export default {
   //   },
   //   facility () {
   //     var id = this.$route.params.id
-  //     this.$router.push({ path: '/information/community/details/' + id + '/facility' })    
+  //     this.$router.push({ path: '/information/community/details/' + id + '/facility' })
   //   }
   // },
   methods: {

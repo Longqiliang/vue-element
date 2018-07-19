@@ -21,9 +21,9 @@ import {
   Sidebar,
   AppMain,
   HeaderWrapper
-} from "@/views/layout/components"
+} from '@/views/layout/components'
 export default {
-  name: "layout",
+  name: 'layout',
   components: {
     Navbar,
     Sidebar,

@@ -1,6 +1,7 @@
 @import './_variables';
 @import './header.scss';
 @import './sidebar.scss';
+@import './tree.scss';
 @import './mixin.scss';
 
 body,html {
@@ -73,7 +74,37 @@ a:hover {
   background-color: $defalutBg!important;
 }
 .app-main{
-  min-height: 100%
+  min-height: 100%;
+  flex: 1;
+  display: flex;
+  .aside-title{
+    padding-left: 8px;
+  }
+  .aside-title,.main-title{
+    margin: 0 0 20px;
+    font-weight: normal;
+    font-size: 18px;
+  }
+  .main-table{
+    margin-top: 20px;
+  }
+  .base-aside{
+    position: relative;
+    overflow: hidden;
+    &::after{
+      position: absolute;
+      height: 100%;
+      right: 0;
+      top: 24px;
+      bottom: 0;
+      width: 1px;
+      background-color: $border-color-lighter;
+      content: '';
+    }
+  }
+  .base-main{
+    padding-left: 40px;
+  }
 }
 
 .app-container {
@@ -92,6 +123,8 @@ a:hover {
 }
 // table样式调整
 .main-container{
+  display: flex;
+  flex-direction: column;
   .table-group-title{
     color: #fff;
     padding: 0 10px;
@@ -177,21 +210,23 @@ a:hover {
 //表单组件
 
 .form-row{
-  border: 1px solid $border-color-lighter;
   + .form-row{
-    border-top: 0;
+    .field-search{
+      border-top: 0;
+    } 
   }
   >.el-col{
     + .el-col{
       .field-search{
-        border-left: 1px solid $border-color-lighter;
+        border-left: none;
       }
     }
   }
 }
 .field-search{
-  // border: 1px solid $border-color-lighter;
+  border: 1px solid $border-color-lighter;
   >.input-group__label{
+    min-width: 105px;
     background-color: $defalutBg;
     border-right: 1px solid $border-color-lighter;
   }
@@ -246,6 +281,23 @@ a:hover {
   padding: 6px 12px;
   font-size: 16px;
   line-height: 1.42857143;
+}
+.form-footer-inline{
+  line-height: 40px;
+  &.is-right{
+    text-align: right;
+  }
+  &.is-center{
+    text-align: center;
+  }
+  .el-button{
+    margin-top: 1px;
+    font-size: 18px;
+    .svg-icon{
+      vertical-align: sub;
+      font-size: 20px;
+    }
+  }
 }
 .form-footer{
   text-align: center;

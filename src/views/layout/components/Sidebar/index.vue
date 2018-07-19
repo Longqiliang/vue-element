@@ -25,10 +25,10 @@ export default {
     routePath () {
       let arr = this.$route.path.split('/')
       let path
-      if (arr[1] != 'index') {
-        path  = '/' + arr[1] + '/' + arr[2] 
+      if (arr[1] !== 'index') {
+        path = '/' + arr[1] + '/' + arr[2]
       } else {
-        path  = '/' + arr[1]  
+        path = '/' + arr[1]
       }
       return path
     },

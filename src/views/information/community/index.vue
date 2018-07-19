@@ -71,7 +71,7 @@
 <script>
 import BTable from '@/components/Table'
 export default {
-  components:{
+  components: {
     BTable
   },
   data() {
@@ -79,146 +79,146 @@ export default {
       table: {
         list: [
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           },
           {
-            index: "1",
-            name: "丽华佳园",
-            street: "福永街道",
-            station: "富华工作站",
-            houseWork: "物业服务企业",
-            person: "李安",
-            phone: "136-2342-2462",
-            completeness: "20%"
+            index: '1',
+            name: '丽华佳园',
+            street: '福永街道',
+            station: '富华工作站',
+            houseWork: '物业服务企业',
+            person: '李安',
+            phone: '136-2342-2462',
+            completeness: '20%'
           }
         ],
         isMultiple: true,
         tableHeader: [
           {
-            label: "序号",
-            name: "index",
+            label: '序号',
+            name: 'index',
             width: 50
           },
           {
-            label: "小区名称",
-            name: "name",
+            label: '小区名称',
+            name: 'name',
             width: 80
           },
           {
-            label: "所属街道办",
-            name: "street",
+            label: '所属街道办',
+            name: 'street',
             width: 90
           },
           {
-            label: "所属工作站",
-            name: "station",
+            label: '所属工作站',
+            name: 'station',
             width: 90
           },
           {
-            label: "物业服务企业",
-            name: "houseWork",
+            label: '物业服务企业',
+            name: 'houseWork',
             width: 160
           },
           {
-            label: "物业经理",
-            name: "person",
+            label: '物业经理',
+            name: 'person',
             width: 80
           },
           {
-            label: "联系方式",
-            name: "phone",
+            label: '联系方式',
+            name: 'phone',
             width: 140
           },
           {
-            label: "信息完成度",
-            name: "completeness",
+            label: '信息完成度',
+            name: 'completeness',
             width: 100
           }
         ],
@@ -248,7 +248,7 @@ export default {
               label: '导出',
               type: 'warning',
               svg: 'export',
-              method:() => {
+              method: () => {
 
               }
             },
@@ -256,7 +256,7 @@ export default {
               label: '新增',
               type: 'primary',
               svg: 'add',
-              method:() => {
+              method: () => {
 
               }
             },
@@ -264,13 +264,13 @@ export default {
               label: '删除',
               type: 'danger',
               svg: 'remove',
-              method:(index, row) => {
+              method: (index, row) => {
                 this.handleSelectionRemove()
-              } 
+              }
             }
           ]
         },
-        multipleSelection: [] //多行选中
+        multipleSelection: [] // 多行选中
       }
     }
   },
@@ -279,7 +279,7 @@ export default {
       this.table.listQuery.pageIndex = val
     },
     handleDetail(id, row) {
-      this.$router.push({ path: '/information/community/details/'+id+'/generalization' })
+      this.$router.push({ path: '/information/community/details/' + id + '/generalization' })
     },
     handleSelectionChange(val) {
       this.table.multipleSelection = val
@@ -296,7 +296,7 @@ export default {
       })
     }
   }
-};
+}
 </script>
 
 <style>

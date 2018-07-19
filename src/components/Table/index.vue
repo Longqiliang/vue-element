@@ -38,7 +38,7 @@
 
           <template slot-scope="scope">
             <template v-if="col.render">
-              <expand-dom :column="col" :row="scope.row" :render="col.render" :index="index"></expand-dom>
+              <expand-dom :column="col" :row="scope.row" :render="col.render"></expand-dom>
             </template>
             <template v-else-if="col.formatter">
               <span v-html="col.formatter(scope.row, col)"></span>
@@ -80,27 +80,27 @@
 
 <script>
 export default {
-  props:{
+  props: {
     list: {
       type: Array,
       default() {
         return []
-      } 
-    }, //表格数据
+      }
+    }, // 表格数据
     align: {
       type: String,
       default: 'center'
-    }, //对齐方式
+    }, // 对齐方式
     isMultiple: {
       type: Boolean,
       default: false
-    }, //是否多选
+    }, // 是否多选
     tableHeader: {
       type: Array,
       default() {
         return []
-      } 
-    }, //表头
+      }
+    }, // 表头
     listQuery: {
       type: Object,
       default() {
@@ -108,21 +108,21 @@ export default {
           pageIndex: 1,
           pageSize: 10
         }
-      } 
-    }, //分页参数
+      }
+    }, // 分页参数
     total: {
-      type: Number 
-    }, //总数
+      type: Number
+    }, // 总数
     operates: {
       type: Object,
       default() {
         return {
-         show: false,
+          show: false,
           width: 150,
-          list: [] 
+          list: []
         }
       }
-    }, //列操作按钮
+    }, // 列操作按钮
     title: {
       type: Object,
       default() {
@@ -133,7 +133,7 @@ export default {
           list: []
         }
       }
-    } //表格标题
+    } // 表格标题
   },
   components: {
     expandDom: {
@@ -141,7 +141,6 @@ export default {
       props: {
         row: Object,
         render: Function,
-        index: Number,
         column: {
           type: Object,
           default: null
@@ -149,8 +148,7 @@ export default {
       },
       render: (h, ctx) => {
         const params = {
-          row: ctx.props.row,
-          index: ctx.props.index
+          row: ctx.props.row
         }
         if (ctx.props.column) params.column = ctx.props.column
         return ctx.props.render(h, params)
@@ -159,7 +157,7 @@ export default {
   },
   computed: {
     pageCount() {
-      let count =  Math.ceil(this.total/this.listQuery.pageSize)
+      let count = Math.ceil(this.total / this.listQuery.pageSize)
       return `共${count}页、`
     }
   },
@@ -174,7 +172,7 @@ export default {
       this.$emit('handleSelectionChange', val)
     }
   }
-};
+}
 </script>
 
 <style>

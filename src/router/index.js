@@ -118,7 +118,7 @@ const constantRouterMap = [
       path: 'manageBase',
       name: 'manageBase',
       component: () =>
-        import('@/views/information/community/index'),
+        import('@/views/information/manageBase/index'),
       meta: {
         title: '管理架构库'
       }
