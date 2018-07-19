@@ -3,9 +3,9 @@
         <div class="table-group-title">
             <h3>配套人员</h3>
         </div>
-        <BTable v-bind="table1" class="table-item"/>
-        <BTable v-bind="table1" class="table-item"/>
-        <BTable v-bind="table1" class="table-item"/>
+        <BTable v-bind="table1" class="table-item" />
+        <BTable v-bind="table1" class="table-item" />
+        <BTable v-bind="table1" class="table-item" />
     </div>
 </template>
 
@@ -104,5 +104,4 @@ export default {
 </script>
 
 <style>
-
 </style>

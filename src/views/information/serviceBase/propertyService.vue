@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import $ from 'jquery'
+import BTable from '@/components/Table'
 export default {
   data () {
     return {

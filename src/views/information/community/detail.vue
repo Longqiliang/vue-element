@@ -7,9 +7,11 @@
       </div>
       <div class="plot-btn">
         <div class="tabs">
-          <el-button type="primary" v-for="(tab,t) in tabs" :key="t" @click="changeTab(t)" :plain="tab.plain">
-            {{tab.label}}
-          </el-button>
+          <router-link :to="tab.path" v-for="(tab,t) in tabs" :key="t">
+            <el-button type="primary" @click="changeTab(t)" :plain="tab.plain">
+              {{tab.label}}
+            </el-button>
+          </router-link>
           <!-- <el-button :plain="true" type="primary">基本概括</el-button>
           <el-button>配套设施</el-button>
           <el-button>配套人员</el-button>
@@ -36,41 +38,37 @@ export default {
       tabs: [
         {
           label: '基本概况',
-          plain: true
+          plain: false,
+          path: 'generalization'
         },
         {
           label: '配套设施',
-          plain: true
+          plain: true,
+          path: 'facility'
         },
         {
           label: '配套人员',
-          plain: true
+          plain: true,
+          path: 'organization'
         },
         {
           label: '业主委员会',
-          plain: true
+          plain: true,
+          path: 'worker'
         },
         {
           label: '小区党组织',
-          plain: true
+          plain: true,
+          path: 'worker'
         },
         {
           label: '其他',
-          plain: true
+          plain: true,
+          path: 'other'
         }
       ]
     }
   },
-  // methods: {
-  //   generalization () {
-  //     var id = this.$route.params.id
-  //     this.$router.push({ path: '/information/community/details/' + id + '/generalization' })
-  //   },
-  //   facility () {
-  //     var id = this.$route.params.id
-  //     this.$router.push({ path: '/information/community/details/' + id + '/facility' })
-  //   }
-  // },
   methods: {
     changeTab (index) {
       for (let tab in this.tabs) {
@@ -91,7 +89,11 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  .tabs{
+  .tabs {
+    a{
+      display: inline-block;
+      margin-right: 10px;
+    }
     .el-button {
       min-width: 110px;
       + .el-button {
@@ -99,6 +101,5 @@ export default {
       }
     }
   }
-  
 }
 </style>

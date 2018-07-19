@@ -57,6 +57,10 @@ const constantRouterMap = [
           component: () =>
             import('@/views/information/community/facility')
         }, {
+          path: 'organization',
+          component: () =>
+            import ('@/views/information/community/organization')
+        }, {
           path: 'worker',
           component: () =>
             import ('@/views/information/community/worker')
@@ -76,7 +80,7 @@ const constantRouterMap = [
       children: [{
         path: 'index',
         component: () =>
-          import('@/views/information/serviceBase/propertyService')
+          import('@/views/information/serviceBase/property')
       },
       {
         path: 'serviceDetails/:id',

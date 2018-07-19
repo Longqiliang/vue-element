@@ -1,8 +1,8 @@
 <template>
   <div>
-    <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="6" class="table-title">
+        <td colspan="6" class="table-title-top">
           <span>配套设施</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
@@ -328,11 +328,13 @@ export default {
 table {
   width: 100%;
   margin-bottom: 10px;
+  border-collapse: collapse;
   td {
     width: 16.6%;
     height: 40px;
     text-align: center;
     overflow: hidden;
+    border: 1px #649efc solid;
     input {
       display: block;
       width: 100%;
@@ -346,7 +348,7 @@ table {
   }
 }
 
-.table-title {
+.table-title-top {
   width: 100%;
   background: #7aaae6;
   padding: 0 10px;
