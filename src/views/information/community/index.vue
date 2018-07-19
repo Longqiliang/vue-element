@@ -279,6 +279,7 @@ export default {
       this.table.listQuery.pageIndex = val
     },
     handleDetail(id, row) {
+      console.log(id,row)
       this.$router.push({ path: '/information/community/details/' + id + '/generalization' })
     },
     handleSelectionChange(val) {

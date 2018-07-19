@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="project-details">
     <div class="details-top">
       <div class="firm-details">
         <svg-icon icon-class="search"></svg-icon>
@@ -228,6 +228,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.project-details{
+  width: 100%;
+}
 .details-top {
   display: flex;
   align-items: center;

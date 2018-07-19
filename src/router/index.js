@@ -59,15 +59,15 @@ const constantRouterMap = [
         }, {
           path: 'organization',
           component: () =>
-            import ('@/views/information/community/organization')
+            import('@/views/information/community/organization')
         }, {
           path: 'worker',
           component: () =>
-            import ('@/views/information/community/worker')
+            import('@/views/information/community/worker')
         }, {
           path: 'other',
           component: () =>
-            import ('@/views/information/community/other')
+            import('@/views/information/community/other')
         }]
       }]
     }, {
@@ -129,8 +129,19 @@ const constantRouterMap = [
     }, {
       path: 'policyBase',
       name: 'policyBase',
+      redirect: 'policyBase/index',
+      childHidden: true,
       component: () =>
-        import('@/views/information/community/index'),
+        import('@/views/layout/components/DefaultView'),
+      children: [{
+        path: 'index',
+        component: () =>
+          import('@/views/information/policyBase/index')
+      }, {
+        path: 'add',
+        component: () =>
+          import('@/views/information/policyBase/add')
+      }],
       meta: {
         title: '政策法规库'
       }
@@ -151,7 +162,7 @@ const constantRouterMap = [
     children: [{
       path: 'index',
       component: () =>
-        import ('@/views/layout/components/DefaultView'),
+        import('@/views/layout/components/DefaultView'),
       name: 'transaction',
       meta: {
         icon: 'task',

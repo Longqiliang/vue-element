@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="project-library">
     <div class="query-title">
       <div>
         <el-input placeholder="请输入小区名称" v-model="firmName">
@@ -185,6 +185,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.project-library{
+  width: 100%;
+}
 .query-title {
   display: flex;
   width: 100%;
