@@ -39,6 +39,7 @@ export default {
             index: '1',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           },
@@ -46,6 +47,7 @@ export default {
             index: '2',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           },
@@ -53,6 +55,7 @@ export default {
             index: '3',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           },
@@ -60,6 +63,7 @@ export default {
             index: '4',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           }
@@ -79,7 +83,15 @@ export default {
           {
             label: '宝安管理项目数量',
             name: 'street',
-            width: 100
+            width: 100,
+            render: (h, params) => {
+              return (
+                <el-tooltip placement="bottom" effect="light">
+                  <div slot="content">{params.row.detail}</div>
+                  <span>{params.row.street}</span>
+                </el-tooltip>
+              )
+            }
           },
           {
             label: '法人',
@@ -127,7 +139,7 @@ export default {
               type: 'warning',
               svg: 'export',
               method: () => {
-                
+
               }
             },
             {
