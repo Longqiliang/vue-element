@@ -1,30 +1,28 @@
 <template>
-  <div>
-    <div class="plot-details">
-      <div class="plot-title">
-        <svg-icon icon-class="search"></svg-icon>
-        <span>企业详情</span>
-      </div>
-      <div class="plot-btn">
-        <div class="tabs">
-          <router-link :to="tab.path" v-for="(tab,t) in tabs" :key="t">
-            <el-button type="primary" @click="changeTab(t)" :plain="tab.plain">
-              {{tab.label}}
-            </el-button>
-          </router-link>
-          <!-- <el-button :plain="true" type="primary">基本概括</el-button>
-          <el-button>配套设施</el-button>
-          <el-button>配套人员</el-button>
-          <el-button>业主委员会</el-button>
-          <el-button>小区党组织</el-button>
-          <el-button>其他</el-button> -->
-        </div>
-        <div>
-          <el-button type="warning" size="small">
-            <svg-icon icon-class="export"></svg-icon>
-            <span>导出</span>
+  <div class="plot-details base-detail">
+    <div class="plot-title">
+      <svg-icon icon-class="search"></svg-icon>
+      <span>企业详情</span>
+    </div>
+    <div class="plot-btn">
+      <div class="tabs">
+        <router-link :to="tab.path" v-for="(tab,t) in tabs" :key="t">
+          <el-button type="primary" @click="changeTab(t)" :plain="tab.plain">
+            {{tab.label}}
           </el-button>
-        </div>
+        </router-link>
+        <!-- <el-button :plain="true" type="primary">基本概括</el-button>
+        <el-button>配套设施</el-button>
+        <el-button>配套人员</el-button>
+        <el-button>业主委员会</el-button>
+        <el-button>小区党组织</el-button>
+        <el-button>其他</el-button> -->
+      </div>
+      <div>
+        <el-button type="warning" size="small">
+          <svg-icon icon-class="export"></svg-icon>
+          <span>导出</span>
+        </el-button>
       </div>
     </div>
     <router-view></router-view>
