@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="base-detail">
     <div class="query-title">
       <div>
         <el-input placeholder="请输入企业名称" v-model="input3">
@@ -26,8 +26,6 @@
 
 <script>
 import BTable from '@/components/Table'
-import FileSaver from 'file-saver'
-import XLSX from 'xlsx'
 export default {
   components: {
     BTable
@@ -38,59 +36,59 @@ export default {
       table: {
         list: [
           {
-            index: "1",
-            name: "深圳开元国际物流有限公司",
-            street: "7",
+            index: '1',
+            name: '深圳开元国际物流有限公司',
+            street: '7',
             station: '李安',
-            phone: "136-2342-2462"
+            phone: '136-2342-2462'
           },
           {
-            index: "2",
-            name: "深圳开元国际物流有限公司",
-            street: "7",
+            index: '2',
+            name: '深圳开元国际物流有限公司',
+            street: '7',
             station: '李安',
-            phone: "136-2342-2462"
+            phone: '136-2342-2462'
           },
           {
-            index: "3",
-            name: "深圳开元国际物流有限公司",
-            street: "7",
+            index: '3',
+            name: '深圳开元国际物流有限公司',
+            street: '7',
             station: '李安',
-            phone: "136-2342-2462"
+            phone: '136-2342-2462'
           },
           {
-            index: "4",
-            name: "深圳开元国际物流有限公司",
-            street: "7",
+            index: '4',
+            name: '深圳开元国际物流有限公司',
+            street: '7',
             station: '李安',
-            phone: "136-2342-2462"
+            phone: '136-2342-2462'
           }
         ],
         isMultiple: true,
         tableHeader: [
           {
-            label: "序号",
-            name: "index",
+            label: '序号',
+            name: 'index',
             width: 100
           },
           {
-            label: "企业名称",
-            name: "name",
+            label: '企业名称',
+            name: 'name',
             width: 250
           },
           {
-            label: "宝安管理项目数量",
-            name: "street",
+            label: '宝安管理项目数量',
+            name: 'street',
             width: 100
           },
           {
-            label: "法人",
-            name: "station",
+            label: '法人',
+            name: 'station',
             width: 200
           },
           {
-            label: "联系方式",
-            name: "phone",
+            label: '联系方式',
+            name: 'phone',
             width: 160
           }
         ],
@@ -150,7 +148,7 @@ export default {
             }
           ]
         },
-        multipleSelection: [] //多行选中
+        multipleSelection: [] // 多行选中
       }
     }
   },
@@ -164,7 +162,7 @@ export default {
     },
     projectlib () {
       var val = this.table.multipleSelection
-      if (val.length == 1) {
+      if (val.length === 1) {
         this.$router.push({ path: '/information/serviceBase/project/library/' + val[0].index })
       } else {
         this.$message({
@@ -186,19 +184,6 @@ export default {
       }).catch((err) => {
         console.log(err)
       })
-    },
-    exportExcel () {
-      /* generate workbook object from table */
-      var wb = XLSX.utils.table_to_book(document.querySelector('.el-table'))
-      /* get binary string as output */
-      var wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'array' })
-      try {
-        FileSaver.saveAs(new Blob([wbout], { type: 'application/octet-stream' }), 'sheetjs.xlsx')
-      } catch (e) { if (typeof console !== 'undefined') console.log(e, wbout) }
-      return wbout
-    },
-    export () {
-      this.exportExcel()
     }
   }
 }
