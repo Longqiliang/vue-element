@@ -52,59 +52,59 @@ export default {
       table: {
         list: [
           {
-            index: "1",
-            name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            index: '1',
+            name: '深圳开元国际物流有限公司',
+            street: '2018.3.6-2019.3.6',
             station: '李安',
-            phone: "136-2342-2462",
+            phone: '136-2342-2462'
           },
           {
-            index: "2",
-            name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            index: '2',
+            name: '深圳开元国际物流有限公司',
+            street: '2018.3.6-2019.3.6',
             station: '李安',
-            phone: "136-2342-2462",
+            phone: '136-2342-2462'
           },
           {
-            index: "3",
-            name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            index: '3',
+            name: '深圳开元国际物流有限公司',
+            street: '2018.3.6-2019.3.6',
             station: '李安',
-            phone: "136-2342-2462",
+            phone: '136-2342-2462'
           },
           {
-            index: "4",
-            name: "深圳开元国际物流有限公司",
-            street: "2018.3.6-2019.3.6",
+            index: '4',
+            name: '深圳开元国际物流有限公司',
+            street: '2018.3.6-2019.3.6',
             station: '李安',
-            phone: "136-2342-2462",
+            phone: '136-2342-2462'
           }
         ],
         isMultiple: true,
         tableHeader: [
           {
-            label: "序号",
-            name: "index",
+            label: '序号',
+            name: 'index',
             width: 100
           },
           {
-            label: "小区名称",
-            name: "name",
+            label: '小区名称',
+            name: 'name',
             width: 250
           },
           {
-            label: "合同服务时间",
-            name: "street",
+            label: '合同服务时间',
+            name: 'street',
             width: 200
           },
           {
-            label: "物业经理",
-            name: "station",
+            label: '物业经理',
+            name: 'station',
             width: 200
           },
           {
-            label: "联系方式",
-            name: "phone",
+            label: '联系方式',
+            name: 'phone',
             width: 160
           }
         ],
@@ -148,7 +148,7 @@ export default {
             }
           ]
         },
-        multipleSelection: [] //多行选中
+        multipleSelection: [] // 多行选中
       }
     }
   },

@@ -7,7 +7,7 @@
     <div class="plot-btn">
       <div class="tabs">
         <router-link :to="tab.path" v-for="(tab,t) in tabs" :key="t">
-          <el-button type="primary" @click="changeTab(t)" :plain="tab.plain">
+          <el-button type="primary" @click="changeTab(t)" :plain="active != t">
             {{tab.label}}
           </el-button>
         </router-link>
@@ -27,49 +27,53 @@
 export default {
   data () {
     return {
+      active: 0,
       tabs: [
         {
           label: '基本概况',
-          plain: false,
           path: 'generalization'
         },
         {
           label: '配套设施',
-          plain: true,
           path: 'facility'
         },
         {
           label: '配套人员',
-          plain: true,
           path: 'organization'
         },
         {
           label: '业主委员会',
-          plain: true,
           path: 'worker'
         },
         {
           label: '小区党组织',
-          plain: true,
           path: 'worker'
         },
         {
           label: '其他',
-          plain: true,
           path: 'other'
         }
       ]
     }
   },
+  mounted() {
+    this.routeTab()
+  },
+  computed: {
+    routePath() {
+      let arr = this.$route.path.split('/')
+      console.log(arr[arr.length - 1])
+      return arr[arr.length - 1]
+    }
+  },
   methods: {
-    changeTab (index) {
-      for (let tab in this.tabs) {
-        if (tab === index) {
-          this.tabs[index].plain = false
-        } else {
-          this.tabs[index].plain = true
-        }
-      }
+    changeTab(index) {
+      this.active = index
+    },
+    routeTab() {
+      const path = this.routePath
+      const index = this.tabs.findIndex(v => v.path === path)
+      this.changeTab(index)
     }
   }
 }
