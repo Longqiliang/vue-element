@@ -86,10 +86,10 @@ export default {
             width: 100,
             render: (h, params) => {
               return (
-                <el-tooltip placement="bottom" effect="light">
-                  <div slot="content">{params.row.detail}</div>
-                  <span>{params.row.street}</span>
-                </el-tooltip>
+                <el-popover placement="bottom" width="300" trigger="hover">
+                  <div>{params.row.detail}</div>
+                  <span slot="reference">{params.row.street}</span>
+                </el-popover>
               )
             }
           },
@@ -168,12 +168,13 @@ export default {
     handleCurrentChange (val) {
       this.table.listQuery.pageIndex = val
     },
-    handleDetail (id, row) {
-      console.log(row.index)
+    handleDetail (index, row) {
+      console.log(row)
       this.$router.push({ path: '/information/serviceBase/serviceDetails/' + row.index })
     },
     projectlib () {
       var val = this.table.multipleSelection
+      console.log(this.table.multipleSelection)
       if (val.length === 1) {
         this.$router.push({ path: '/information/serviceBase/project/library/' + val[0].index })
       } else {
