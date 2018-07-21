@@ -65,10 +65,14 @@ export default {
   mounted() {
     this.routeTab()
   },
+  watch: {
+    routePath() {
+      this.routeTab()
+    }
+  },
   computed: {
     routePath() {
       let arr = this.$route.path.split('/')
-      console.log(arr[arr.length - 1])
       return arr[arr.length - 1]
     }
   },

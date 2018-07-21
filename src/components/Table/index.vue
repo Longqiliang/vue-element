@@ -7,19 +7,24 @@
         <template v-if="title.list && title.list.length">
           <div class="table-title-slot">
             <template v-for="(item, t) in title.list">
-              <template v-if="item.type">
-                <el-button :type="item.type" :size="item.size || 'medium'" :icon="item.icon" :key="t" @click.native.prevent="item.method">
-                  <template v-if="item.svg">
-                    <svg-icon :icon-class="item.svg"></svg-icon>
-                  </template>
-                  {{item.label}}
-                </el-button>
+              <template v-if="item.render">
+                <titleDom :render="item.render" :method="item.method" :key="t"></titleDom>
               </template>
               <template v-else>
-                <span :key="t">
-                  <svg-icon :icon-class="item.svg" v-if="item.svg" ></svg-icon>
-                  {{item.label}}
-                </span>
+                <template v-if="item.type">
+                  <el-button :type="item.type" :size="item.size || 'medium'" :icon="item.icon" :key="t" @click.native.prevent="item.method">
+                    <template v-if="item.svg">
+                      <svg-icon :icon-class="item.svg"></svg-icon>
+                    </template>
+                    {{item.label}}
+                  </el-button>
+                </template>
+                <template v-else>
+                  <span :key="t">
+                    <svg-icon :icon-class="item.svg" v-if="item.svg" ></svg-icon>
+                    {{item.label}}
+                  </span>
+                </template>
               </template>
             </template>
           </div>
@@ -152,6 +157,16 @@ export default {
         }
         if (ctx.props.column) params.column = ctx.props.column
         return ctx.props.render(h, params)
+      }
+    },
+    titleDom: {
+      functional: true,
+      props: {
+        render: Function,
+        method: Function
+      },
+      render: (h, ctx) => {
+        return ctx.props.render(h, ctx.props)
       }
     }
   },
