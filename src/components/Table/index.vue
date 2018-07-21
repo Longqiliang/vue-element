@@ -174,7 +174,7 @@ export default {
       this.$emit('handleSelectionChange', val)
     }
   }
-};
+}
 </script>
 
 <style>

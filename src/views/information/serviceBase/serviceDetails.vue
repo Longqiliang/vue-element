@@ -59,7 +59,19 @@
           <input type="text" v-model="card" :disabled="saveShow">
         </td>
       </tr>
-      <tr>
+      <tr v-if="!saveShow">
+        <td scope="row" class="has-background">
+          <span class="must">*</span>联系方式</td>
+        <td class="content">
+          <input type="text" v-model="phoneNum" :disabled="saveShow">
+        </td>
+        <td class="has-background">
+          <span class="must">*</span>成立时间</td>
+        <td class="content">
+          <input type="text" v-model="time" :disabled="saveShow">
+        </td>
+      </tr>
+      <tr v-if="saveShow">
         <td scope="row" class="has-background border-bottom">
           <span class="must">*</span>联系方式</td>
         <td class="content border-bottom">
@@ -71,25 +83,39 @@
           <input type="text" v-model="time" :disabled="saveShow">
         </td>
       </tr>
-      <tr>
+      <tr v-if="saveShow">
         <td colspan="4" class="content1">
           <BTable v-bind="table" />
         </td>
       </tr>
-      <tr>
+      <tr v-if="saveShow">
         <td scope="row" class="has-background border-top">
           <span class="must">*</span>单位地址</td>
         <td colspan="3" class="content-col border-top">
           <input type="text" v-model="project" :disabled="saveShow">
         </td>
       </tr>
-      <tr>
+      <tr v-if="!saveShow">
+        <td scope="row" class="has-background border-top">
+          <span class="must">*</span>管理项目</td>
+        <td colspan="3" class="content-col border-top">
+          <input type="text" v-model="project" :disabled="saveShow">
+        </td>
+      </tr>
+      <tr v-if="saveShow">
         <td scope="row" class="has-background">
           <span class="must">*</span>营业执照</td>
         <td colspan="3" class="content-col">
           <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange" :file-list="fileList3">
             <a>上传附件</a>
           </el-upload>
+        </td>
+      </tr>
+      <tr v-if="!saveShow">
+        <td scope="row" class="has-background border-top">
+          <span class="must">*</span>单位地址</td>
+        <td colspan="3" class="content-col border-top">
+          <input type="text" v-model="site" :disabled="saveShow">
         </td>
       </tr>
       <tr>
