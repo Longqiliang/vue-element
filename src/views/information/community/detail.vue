@@ -11,12 +11,6 @@
             {{tab.label}}
           </el-button>
         </router-link>
-        <!-- <el-button :plain="true" type="primary">基本概括</el-button>
-        <el-button>配套设施</el-button>
-        <el-button>配套人员</el-button>
-        <el-button>业主委员会</el-button>
-        <el-button>小区党组织</el-button>
-        <el-button>其他</el-button> -->
       </div>
       <div>
         <el-button type="warning" size="small">

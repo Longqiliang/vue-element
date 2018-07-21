@@ -39,6 +39,7 @@ export default {
             index: '1',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           },
@@ -46,6 +47,7 @@ export default {
             index: '2',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           },
@@ -53,6 +55,7 @@ export default {
             index: '3',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           },
@@ -60,6 +63,7 @@ export default {
             index: '4',
             name: '深圳开元国际物流有限公司',
             street: '7',
+            detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
             phone: '136-2342-2462'
           }
@@ -79,7 +83,15 @@ export default {
           {
             label: '宝安管理项目数量',
             name: 'street',
-            width: 100
+            width: 100,
+            render: (h, params) => {
+              return (
+                <el-popover placement="bottom" width="300" trigger="hover">
+                  <div>{params.row.detail}</div>
+                  <span slot="reference">{params.row.street}</span>
+                </el-popover>
+              )
+            }
           },
           {
             label: '法人',
@@ -129,7 +141,7 @@ export default {
               type: 'warning',
               svg: 'export',
               method: () => {
-                this.export()
+
               }
             },
             {
@@ -158,12 +170,13 @@ export default {
     handleCurrentChange (val) {
       this.table.listQuery.pageIndex = val
     },
-    handleDetail (id, row) {
-      console.log(row.index)
+    handleDetail (index, row) {
+      console.log(row)
       this.$router.push({ path: '/information/serviceBase/serviceDetails/' + row.index })
     },
     projectlib () {
       var val = this.table.multipleSelection
+      console.log(this.table.multipleSelection)
       if (val.length === 1) {
         this.$router.push({ path: '/information/serviceBase/project/library/' + val[0].index })
       } else {

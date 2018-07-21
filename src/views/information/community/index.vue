@@ -249,7 +249,7 @@ export default {
               type: 'warning',
               svg: 'export',
               method: () => {
-                this.export()
+                
               }
             },
             {
@@ -294,9 +294,6 @@ export default {
       }).catch((err) => {
         console.log(err)
       })
-    },
-    export () {
-      this.exportExcel()
     }
   }
 }

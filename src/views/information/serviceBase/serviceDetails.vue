@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="service-details">
     <div class="details-top">
       <div class="firm-details">
         <svg-icon icon-class="search"></svg-icon>
@@ -48,41 +48,48 @@
         </td>
       </tr>
       <tr>
-        <td scope="row" class="has-background">
+        <td scope="row" class="has-background border-bottom">
           <span class="must">*</span>法人姓名</td>
-        <td class="content">
+        <td class="content border-bottom">
           <input type="text" v-model="legal" :disabled="saveShow">
         </td>
-        <td class="has-background">
+        <td class="has-background border-bottom">
           <span class="must">*</span>身份证号码</td>
-        <td class="content">
+        <td class="content border-bottom">
           <input type="text" v-model="card" :disabled="saveShow">
         </td>
       </tr>
       <tr>
-        <td scope="row" class="has-background">
+        <td scope="row" class="has-background border-bottom">
           <span class="must">*</span>联系方式</td>
-        <td class="content">
+        <td class="content border-bottom">
           <input type="text" v-model="phoneNum" :disabled="saveShow">
         </td>
-        <td class="has-background">
+        <td class="has-background border-bottom">
           <span class="must">*</span>成立时间</td>
-        <td class="content">
+        <td class="content border-bottom">
           <input type="text" v-model="time" :disabled="saveShow">
         </td>
       </tr>
       <tr>
-        <td scope="row" class="has-background">
-          <span class="must">*</span>管理项目</td>
-        <td colspan="3" class="content-col">
+        <td colspan="4" class="content1">
+          <BTable v-bind="table" />
+        </td>
+      </tr>
+      <tr>
+        <td scope="row" class="has-background border-top">
+          <span class="must">*</span>单位地址</td>
+        <td colspan="3" class="content-col border-top">
           <input type="text" v-model="project" :disabled="saveShow">
         </td>
       </tr>
       <tr>
         <td scope="row" class="has-background">
-          <span class="must">*</span>单位地址</td>
+          <span class="must">*</span>营业执照</td>
         <td colspan="3" class="content-col">
-          <input type="text" v-model="site" :disabled="saveShow">
+          <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange" :file-list="fileList3">
+            <a>上传附件</a>
+          </el-upload>
         </td>
       </tr>
       <tr>
@@ -102,7 +109,11 @@
 </template>
 
 <script>
+import BTable from '@/components/Table'
 export default {
+  components: {
+    BTable
+  },
   data () {
     return {
       name: '深圳市开元国际物流有限公司',
@@ -117,7 +128,75 @@ export default {
       site: '王者峡谷',
       intro: '单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行单击页面使单元格td变成可编辑状态，输入内容后，当单元格失去焦点时，保存输入的内容。点击增加行，在table的末尾增加一行；点击删除行，删除table中最末尾的一行',
       saveShow: true,
-      firm: []
+      firm: [],
+      fileList3: [],
+      table: {
+        list: [
+          {
+            index: '1',
+            designation: '深圳开元国际物流有限公司',
+            plot: '御景湾',
+            contract: '3',
+            legal: '是',
+            name: '李白',
+            num: '3607321994844514'
+          },
+          {
+            index: '2',
+            designation: '深圳开元国际物流有限公司',
+            plot: '御景湾',
+            contract: '3',
+            legal: '是',
+            name: '李白',
+            num: '3607321994844514'
+          }
+        ],
+        tableHeader: [
+          {
+            label: '序号',
+            name: 'index',
+            width: 100
+          },
+          {
+            label: '项目名称',
+            name: 'designation',
+            width: 200
+          },
+          {
+            label: '所属小区',
+            name: 'plot',
+            width: 200
+          },
+          {
+            label: '服务合同年限',
+            name: 'contract',
+            width: 100
+          },
+          {
+            label: '是否为独立法人',
+            name: 'legal',
+            width: 100
+          },
+          {
+            label: '法人姓名',
+            name: 'name',
+            width: 200
+          },
+          {
+            label: '身份证号',
+            name: 'num',
+            width: 250
+          }
+        ],
+        title: {
+          show: true,
+          align: 'left',
+          label: '管理项目名单',
+          list: [
+            
+          ]
+        }
+      }
     }
   },
   methods: {
@@ -136,7 +215,8 @@ export default {
         time: this.time,
         project: this.project,
         site: this.site,
-        intor: this.intro
+        intor: this.intro,
+        fileList3: this.fileList3
       }
       console.log(firm)
       this.$message({
@@ -144,12 +224,18 @@ export default {
         type: 'success'
       })
       this.saveShow = true
+    },
+    handleChange (file, fileList) {
+      this.fileList3 = fileList.slice(-3)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.service-details{
+  width: 100%;
+}
 .details-top {
   display: flex;
   align-items: center;
@@ -164,6 +250,9 @@ table {
     text-align: center;
     overflow: hidden;
     border: 1px #649efc solid;
+    a{
+      text-decoration: underline;
+    }
     input,textarea {
       display: block;
       width: 100%;
@@ -181,7 +270,12 @@ table {
       color: black;
       font-weight: 500;
       text-align: left;
+      resize: vertical;
+      min-height: 300px;
     }
+  }
+  .content1{
+    border: none;
   }
 }
 .table-title-top {
@@ -202,6 +296,12 @@ table {
 .has-background {
   width: 22%;
   background: #b9d1ef;
+}
+.border-bottom{
+  border-bottom: none;
+}
+.border-top{
+  border-top: none;
 }
 .must {
   color: red;
