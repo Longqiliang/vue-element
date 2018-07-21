@@ -104,12 +104,12 @@ export default {
             width: 160
           },
           {
-            laebl: '房产证号',
+            label: '房产证号',
             name: 'housecard',
             width: 120
           },
           {
-            laebl: '楼栋号',
+            label: '楼栋号',
             name: 'floor',
             width: 90
           },
@@ -128,11 +128,12 @@ export default {
             name: 'score',
             render: (h, ctx) => {
               return (
-                <el-button type="text">{ctx.row.score}</el-button>
+                <el-button type="text" onClick={ctx.column.method}>{ctx.row.score}</el-button>
               )
             },
-            method: (i, r) => {
-              this.handleDetail(i, r)
+            method: (r) => {
+              console.log(r)
+              this.handleDetail(r)
             }
           }
         ],
@@ -180,8 +181,8 @@ export default {
     handleCurrentChange(val) {
       this.table.listQuery.pageIndex = val
     },
-    handleDetail(id, row) {
-      this.$router.push({ path: '/information/community/details/' + id + '/generalization' })
+    handleDetail(row) {
+      this.$router.push({ path: `/information/serviceBase/serviceDetails/1` })
     },
     handleSelectionChange(val) {
       this.table.multipleSelection = val

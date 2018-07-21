@@ -61,6 +61,11 @@ const constantRouterMap = [
           component: () =>
             import('@/views/information/community/organization')
         }, {
+          path: 'committee',
+          component: () =>
+            import('@/views/information/community/committee')
+        },
+        {
           path: 'worker',
           component: () =>
             import('@/views/information/community/worker')

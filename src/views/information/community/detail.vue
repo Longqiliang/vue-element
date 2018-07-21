@@ -39,15 +39,15 @@ export default {
         },
         {
           label: '配套人员',
-          path: 'organization'
+          path: 'worker'
         },
         {
           label: '业主委员会',
-          path: 'worker'
+          path: 'committee'
         },
         {
           label: '小区党组织',
-          path: 'worker'
+          path: 'organization'
         },
         {
           label: '其他',
