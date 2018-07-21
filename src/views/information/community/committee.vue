@@ -1,48 +1,5 @@
 <template>
-  <div>
-    <el-form ref="communityForm" >
-      <el-row type="flex" class="form-row">
-        <el-col :span="8">
-          <div class="input-group field-search">
-            <label for="s" class="input-group__label">是否成立党支部</label>
-            <select name="street" class="form-control" id="s">
-              <option value="1">是</option>
-              <option value="2">否</option>
-            </select>
-          </div>
-        </el-col>
-        <el-col :span="8">
-          <div class="input-group field-search">
-            <label for="s" class="input-group__label">党支部名称</label>
-            <el-input></el-input>
-          </div>
-        </el-col>
-        <el-col :span="8">
-          <div class="input-group field-search">
-            <label for="s" class="input-group__label">党支部书记</label>
-             <el-input></el-input>
-          </div>
-        </el-col>
-      </el-row>
-      <el-row type="flex" class="form-row">
-        <el-col :span="8">
-          <div class="input-group field-search">
-            <label for="s" class="input-group__label">党支部成立时间</label>
-            <el-date-picker  placeholder=""></el-date-picker>
-          </div>
-        </el-col>
-        <el-col :span="8">
-          <div class="input-group field-search">
-            <label for="s" class="input-group__label">委员数量</label>
-            <el-input></el-input>
-          </div>
-        </el-col>
-       
-      </el-row>
-    </el-form>
-    <BTable v-bind="table"  class="table-mar"/>
-  </div>
-  
+  <BTable v-bind="table" />
 </template>
 
 <script>
@@ -144,7 +101,5 @@ export default {
 </script>
 
 <style>
-  .table-mar{
-    margin-top: 15px;
-  }
+
 </style>

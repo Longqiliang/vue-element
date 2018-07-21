@@ -61,6 +61,11 @@ const constantRouterMap = [
           component: () =>
             import('@/views/information/community/organization')
         }, {
+          path: 'committee',
+          component: () =>
+            import('@/views/information/community/committee')
+        },
+        {
           path: 'worker',
           component: () =>
             import('@/views/information/community/worker')
@@ -113,8 +118,19 @@ const constantRouterMap = [
     }, {
       path: 'ownerBase',
       name: 'ownerBase',
+      redirect: 'ownerBase/index',
+      childHidden: true,
       component: () =>
-        import('@/views/information/community/index'),
+          import('@/views/layout/components/DefaultView'),
+      children: [{
+        path: 'index',
+        component: () =>
+        import('@/views/information/ownerBase/index')
+      }, {
+        path: 'detail/:id',
+        component: () =>
+        import('@/views/information/ownerBase/detail')
+      }],
       meta: {
         title: '业主库'
       }

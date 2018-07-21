@@ -39,15 +39,15 @@ export default {
         },
         {
           label: '配套人员',
-          path: 'organization'
+          path: 'worker'
         },
         {
           label: '业主委员会',
-          path: 'worker'
+          path: 'committee'
         },
         {
           label: '小区党组织',
-          path: 'worker'
+          path: 'organization'
         },
         {
           label: '其他',
@@ -59,10 +59,14 @@ export default {
   mounted() {
     this.routeTab()
   },
+  watch: {
+    routePath() {
+      this.routeTab()
+    }
+  },
   computed: {
     routePath() {
       let arr = this.$route.path.split('/')
-      console.log(arr[arr.length - 1])
       return arr[arr.length - 1]
     }
   },

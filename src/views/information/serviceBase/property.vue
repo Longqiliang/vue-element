@@ -127,9 +127,11 @@ export default {
           label: '物业服务企业列表列表',
           list: [
             {
-              label: '查看项目详情',
-              type: 'danger',
-              svg: '',
+              render: (h, ctx) => {
+                return (
+                  <el-button nativeOnClick={ctx.method}>查看项目详情</el-button>
+                )
+              },
               method: (index, row) => {
                 this.projectlib()
               }

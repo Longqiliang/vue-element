@@ -7,19 +7,24 @@
         <template v-if="title.list && title.list.length">
           <div class="table-title-slot">
             <template v-for="(item, t) in title.list">
-              <template v-if="item.type">
-                <el-button :type="item.type" :size="item.size || 'medium'" :icon="item.icon" :key="t" @click.native.prevent="item.method">
-                  <template v-if="item.svg">
-                    <svg-icon :icon-class="item.svg"></svg-icon>
-                  </template>
-                  {{item.label}}
-                </el-button>
-              </template> 
+              <template v-if="item.render">
+                <titleDom :render="item.render" :method="item.method" :key="t"></titleDom>
+              </template>
               <template v-else>
-                <span :key="t">
-                  <svg-icon :icon-class="item.svg" v-if="item.svg" ></svg-icon>
-                  {{item.label}}
-                </span>
+                <template v-if="item.type">
+                  <el-button :type="item.type" :size="item.size || 'medium'" :icon="item.icon" :key="t" @click.native.prevent="item.method">
+                    <template v-if="item.svg">
+                      <svg-icon :icon-class="item.svg"></svg-icon>
+                    </template>
+                    {{item.label}}
+                  </el-button>
+                </template>
+                <template v-else>
+                  <span :key="t">
+                    <svg-icon :icon-class="item.svg" v-if="item.svg" ></svg-icon>
+                    {{item.label}}
+                  </span>
+                </template>
               </template>
             </template>
           </div>
@@ -80,27 +85,27 @@
 
 <script>
 export default {
-  props:{
+  props: {
     list: {
       type: Array,
       default() {
         return []
-      } 
-    }, //表格数据
+      }
+    }, // 表格数据
     align: {
       type: String,
       default: 'center'
-    }, //对齐方式
+    }, // 对齐方式
     isMultiple: {
       type: Boolean,
       default: false
-    }, //是否多选
+    }, // 是否多选
     tableHeader: {
       type: Array,
       default() {
         return []
-      } 
-    }, //表头
+      }
+    }, // 表头
     listQuery: {
       type: Object,
       default() {
@@ -108,21 +113,21 @@ export default {
           pageIndex: 1,
           pageSize: 10
         }
-      } 
-    }, //分页参数
+      }
+    }, // 分页参数
     total: {
-      type: Number 
-    }, //总数
+      type: Number
+    }, // 总数
     operates: {
       type: Object,
       default() {
         return {
-         show: false,
+          show: false,
           width: 150,
-          list: [] 
+          list: []
         }
       }
-    }, //列操作按钮
+    }, // 列操作按钮
     title: {
       type: Object,
       default() {
@@ -133,7 +138,7 @@ export default {
           list: []
         }
       }
-    } //表格标题
+    } // 表格标题
   },
   components: {
     expandDom: {
@@ -155,11 +160,21 @@ export default {
         if (ctx.props.column) params.column = ctx.props.column
         return ctx.props.render(h, params)
       }
+    },
+    titleDom: {
+      functional: true,
+      props: {
+        render: Function,
+        method: Function
+      },
+      render: (h, ctx) => {
+        return ctx.props.render(h, ctx.props)
+      }
     }
   },
   computed: {
     pageCount() {
-      let count =  Math.ceil(this.total/this.listQuery.pageSize)
+      let count = Math.ceil(this.total / this.listQuery.pageSize)
       return `共${count}页、`
     }
   },

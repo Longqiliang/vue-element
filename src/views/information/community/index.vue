@@ -249,7 +249,6 @@ export default {
               type: 'warning',
               svg: 'export',
               method: () => {
-                
               }
             },
             {
