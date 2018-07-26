@@ -47,8 +47,8 @@
           </el-col>
           <el-col :span="12">
             <div class="form-footer-inline is-right">
-              <el-button type="success" size="mini"><svg-icon icon-class="del"></svg-icon>清空</el-button>
-              <el-button type="primary" size="mini"><svg-icon icon-class="search"></svg-icon>查询</el-button>
+              <el-button type="success" size="medium"><svg-icon icon-class="del"></svg-icon>清空</el-button>
+              <el-button type="primary" size="medium"><svg-icon icon-class="search"></svg-icon>查询</el-button>
             </div>
           </el-col>
         </el-row>

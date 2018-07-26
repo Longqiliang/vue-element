@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="base-detail">
   <el-form ref="communityForm" >
     <el-row type="flex" class="form-row">
       <el-col :span="8">
@@ -58,8 +58,8 @@
       </el-col>
     </el-row>
     <div class="form-footer">
-      <el-button type="success" size="mini"><svg-icon icon-class="del"></svg-icon>清空</el-button>
-      <el-button type="primary" size="mini"><svg-icon icon-class="search"></svg-icon>查询</el-button>
+      <el-button type="success" size="medium"><svg-icon icon-class="del"></svg-icon>清空</el-button>
+      <el-button type="primary" size="medium"><svg-icon icon-class="search"></svg-icon>查询</el-button>
     </div>
   </el-form>
     

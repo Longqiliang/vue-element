@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="base-detail">
   <el-form ref="communityForm" >
     <el-row type="flex" class="form-row">
       <el-col :span="8">
@@ -33,15 +33,17 @@
       <el-col :span="8">
         <div class="input-group field-search">
           <label for="s" class="input-group__label">业主人数</label>
-          <el-input class="input-group-number"></el-input>
-          <div class="el-input-group__center"><span class="input-group__label">至</span></div>
-          <el-input class="input-group-number"></el-input>
+          <div class="flex">
+            <el-input class="input-group-number"></el-input>
+            <div class="el-input-group__center"><span class="input-group__label">至</span></div>
+            <el-input class="input-group-number"></el-input>
+          </div>
         </div>
       </el-col>
     </el-row>
     <div class="form-footer">
-      <el-button type="success" size="mini"><svg-icon icon-class="del"></svg-icon>清空</el-button>
-      <el-button type="primary" size="mini"><svg-icon icon-class="search"></svg-icon>查询</el-button>
+      <el-button type="success" size="medium"><svg-icon icon-class="del"></svg-icon>清空</el-button>
+      <el-button type="primary" size="medium"><svg-icon icon-class="search"></svg-icon>查询</el-button>
     </div>
   </el-form>
     

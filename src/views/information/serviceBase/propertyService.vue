@@ -45,18 +45,18 @@
 
       </el-table>
       <div class="operation">
-        <el-button type="danger" size="small">
+        <el-button type="danger" size="medium">
           查看项目详情
         </el-button>
-        <el-button type="warning" size="small">
+        <el-button type="warning" size="medium">
           <svg-icon icon-class="export"></svg-icon>
           <span>导出</span>
         </el-button>
-        <el-button type="primary" size="small">
+        <el-button type="primary" size="medium">
           <svg-icon icon-class="add"></svg-icon>
           <span>新增</span>
         </el-button>
-        <el-button type="info" size="small">
+        <el-button type="info" size="medium">
           <svg-icon icon-class="remove"></svg-icon>
           <span>删除</span>
         </el-button>
@@ -142,6 +142,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .query-title {
   width: 100%;
   display: flex;

@@ -5,10 +5,12 @@
         <svg-icon icon-class="search"></svg-icon>
         <span>企业详情</span>
       </div>
-      <el-button type="warning">
-        <svg-icon icon-class="export"></svg-icon>
-        <span>导出</span>
-      </el-button>
+      <div class="form-footer-inline">
+        <el-button type="warning">
+          <svg-icon icon-class="export"></svg-icon>
+          <span>导出</span>
+        </el-button>
+      </div>
     </div>
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
@@ -16,7 +18,7 @@
           <span>企业详情</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
-            <el-button type="success" size="small" @click="compile">
+            <el-button type="success" size="medium" @click="compile">
               <svg-icon icon-class="write"></svg-icon>
               <span>编辑</span>
             </el-button>
@@ -219,7 +221,7 @@ export default {
           align: 'left',
           label: '管理项目名单',
           list: [
-            
+
           ]
         }
       }
@@ -259,6 +261,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .service-details{
   width: 100%;
 }
@@ -283,7 +286,7 @@ table {
       display: block;
       width: 100%;
       height: 100%;
-      font-size: 16px;
+      font-size: $default-font;
       border: none;
       text-align: center;  
       background: #fff;   
@@ -308,6 +311,11 @@ table {
   width: 100%;
   background: #7aaae6;
   padding: 0 15px;
+  .el-button{
+    padding: 7px 12px;
+    font-size: $default-font;
+    margin-top: 3px;
+  }
   span:nth-child(1) {
     color: #fff;
     font-weight: 600;
@@ -315,7 +323,6 @@ table {
     line-height: 40px;
   }
   span:nth-child(2) {
-    margin-top: 3px;
     float: right;
   }
 }
@@ -341,7 +348,7 @@ table {
     height: 100%;
     border: none;
     text-align: center;
-    font-size: 16px;
+    font-size: $default-font;
     font-weight: 500;
   }
 }

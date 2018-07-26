@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import BTable from '@/components/table'
+import BTable from '@/components/Table'
 export default {
   components: {
     BTable

@@ -6,7 +6,7 @@
           <span>配套设施</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
-            <el-button type="success" size="small" @click="compile">
+            <el-button type="success" size="medium" @click="compile">
               <svg-icon icon-class="write"></svg-icon>
               <span>编辑</span>
             </el-button>
@@ -319,6 +319,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$default-font: 14px;
 .details-top {
   display: flex;
   align-items: center;
@@ -342,7 +343,7 @@ table {
       border: none;
       text-align: center;
       background: #fff;
-      font-size: 16px;
+      font-size: $default-font;
       color: #000;
     }
   }
@@ -352,6 +353,11 @@ table {
   width: 100%;
   background: #7aaae6;
   padding: 0 10px;
+  .el-button{
+    padding: 7px 12px;
+    font-size: $default-font;
+    margin-top: 3px;
+  }
   span:nth-child(1) {
     color: #fff;
     font-weight: 600;
@@ -377,7 +383,7 @@ table {
     height: 100%;
     border: none;
     text-align: center;
-    font-size: 16px;
+    font-size: $default-font;
     font-weight: 500;
   }
 }

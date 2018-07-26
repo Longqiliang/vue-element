@@ -174,16 +174,62 @@ const constantRouterMap = [
   {
     path: '/transaction',
     component: Layout,
-    redirect: 'index',
+    redirect: 'noredirect',
+    alwaysShow: true,
+    name: 'transaction',
+    meta: {
+      icon: 'task',
+      title: '事务管理'
+    },
     children: [{
-      path: 'index',
+      path: 'notice',
+      name: 'notice',
+      redirect: 'notice/index',
+      childHidden: true,
+      meta: {
+        title: '通知公告'
+      },
       component: () =>
         import('@/views/layout/components/DefaultView'),
-      name: 'transaction',
+      children: [{
+        path: 'index',
+        component: () =>
+          import('@/views/transaction/notice/index')
+      }, {
+        path: 'add',
+        component: () =>
+          import('@/views/transaction/notice/add')
+      }]
+    }, {
+      path: 'payments',
+      name: 'payments',
       meta: {
-        icon: 'task',
-        title: '事务管理'
-      }
+        title: '公共资源收支'
+      },
+      component: () =>
+        import('@/views/layout/components/DefaultView'),
+      children: [{
+        path: 'composite',
+        meta: {
+          title: '综合管理'
+        },
+        component: () =>
+        import('@/views/transaction/payments/composite/composite')
+      }, {
+        path: 'expenditure',
+        meta: {
+          title: '支出管理'
+        },
+        component: () =>
+        import('@/views/transaction/payments/expenditure/expenditure')
+      }, {
+        path: 'income',
+        meta: {
+          title: '收入管理'
+        },
+        component: () =>
+        import('@/views/transaction/payments/income/income')
+      }]
     }]
   },
   {

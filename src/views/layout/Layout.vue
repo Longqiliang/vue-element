@@ -10,8 +10,10 @@
             <app-main></app-main>
           </div>
         </div> 
-      </div>  
-    </div> 
+      </div> 
+      <Bfooter /> 
+    </div>
+    
   </div>
 </template>
 
@@ -20,7 +22,8 @@ import {
   Navbar,
   Sidebar,
   AppMain,
-  HeaderWrapper
+  HeaderWrapper,
+  Bfooter
 } from '@/views/layout/components'
 export default {
   name: 'layout',
@@ -28,7 +31,8 @@ export default {
     Navbar,
     Sidebar,
     AppMain,
-    HeaderWrapper
+    HeaderWrapper,
+    Bfooter
   },
   computed: {
     sidebar() {

@@ -20,8 +20,8 @@
                   </el-button>
                 </template>
                 <template v-else>
-                  <span :key="t">
-                    <svg-icon :icon-class="item.svg" v-if="item.svg" ></svg-icon>
+                  <span :key="t" class="button" :class="item.class">
+                    <svg-icon :icon-class="item.svg" v-if="item.svg" @click.native.prevent="item.method"></svg-icon>
                     {{item.label}}
                   </span>
                 </template>
@@ -33,42 +33,53 @@
     </template>
     <!-- 表格标题 end -->
     <!-- 表格数据 -->
-    <el-table :data="list" style="width: 100%" border header-cell-class-name="default-bg"
-      @selection-change="handleSelectionChange">
-      <el-table-column v-if="isMultiple" type="selection" width="50" align="center"></el-table-column>
-      <el-table-column v-for="(col, c) in tableHeader" :prop="col.slot? null : col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type">
-          <!-- <template v-if="col.children">
-              <el-table-column v-for="(ch,o) in col.children" :key="o" :label="ch.label" :prop="ch.name || ch.label"></el-table-column>
-          </template> -->
-
-          <template slot-scope="scope">
-            <template v-if="col.render">
-              <expand-dom :column="col" :row="scope.row" :render="col.render"></expand-dom>
-            </template>
-            <template v-else-if="col.formatter">
-              <span v-html="col.formatter(scope.row, col)"></span>
-            </template> 
-            <template v-else>
-              <span>{{scope.row[col.name]}}</span>
-            </template>
-          </template>   
-      </el-table-column>
-      <!-- 按钮操作组 -->
-      <el-table-column v-if="operates.show && operates.list.length" label="操作" align="center" :width="operates.width">
-        <template slot-scope="scope">
-          <template v-for="(btn, key) in operates.list" >
-            <el-button :type="btn.type" :size="btn.type || 'medium'" :icon="btn.icon" :disabled="btn.disabled" :plain="btn.plain"  @click.native.prevent="btn.method(key, scope.row)" :key="key">
-              <template v-if="btn.svg">
-                <svg-icon :icon-class="btn.svg"></svg-icon>
+    <template v-if="show">
+      <el-table :data="list" style="width: 100%" border header-cell-class-name="default-bg"
+        @selection-change="handleSelectionChange">
+        <el-table-column v-if="isMultiple" type="selection" width="45" align="center"></el-table-column>
+        <el-table-column v-for="(col, c) in tableHeader" :prop="col.slot? null : col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type" :sortable="col.sortable">
+            <!-- <template v-if="col.children">
+                <el-table-column v-for="(ch,o) in col.children" :key="o" :label="ch.label" :prop="ch.name || ch.label"></el-table-column>
+            </template> -->
+            <template slot-scope="scope">
+              <template v-if="col.render">
+                <expand-dom :column="col" :row="scope.row" :render="col.render"></expand-dom>
               </template>
-              {{ btn.label }}
-            </el-button>
+              <template v-else-if="col.formatter">
+                <span v-html="col.formatter(scope.row, col)"></span>
+              </template> 
+              <template v-else>
+                <span>{{scope.row[col.name]}}</span>
+              </template>
+            </template>   
+        </el-table-column>
+        <!-- 按钮操作组 -->
+        <el-table-column v-if="operates.show && operates.list.length" label="操作" align="center" :width="operates.width">
+          <template slot-scope="scope">
+            <template v-for="(btn, key) in operates.list" >
+              <template v-if="btn.filter">
+                <el-button :type="btn.type" :size="btn.type || 'medium'" :icon="btn.icon" :disabled="btn.disabled" :plain="btn.plain"  @click.native.prevent="btn.method(key, scope.row)" :key="key" v-if="btn.filter(scope.row)">
+                  <template v-if="btn.svg">
+                    <svg-icon :icon-class="btn.svg"></svg-icon>
+                  </template>
+                  {{ btn.label }}
+                </el-button>
+              </template>
+              <template v-else>
+                <el-button :type="btn.type" :size="btn.type || 'medium'" :icon="btn.icon" :disabled="btn.disabled" :plain="btn.plain"  @click.native.prevent="btn.method(key, scope.row)" :key="key">
+                  <template v-if="btn.svg">
+                    <svg-icon :icon-class="btn.svg"></svg-icon>
+                  </template>
+                  {{ btn.label }}
+                </el-button>
+              </template>
+            </template>
           </template>
-        </template>
-        
-      </el-table-column> 
-      <!-- 按钮操作组 end-->
-    </el-table>
+          
+        </el-table-column> 
+        <!-- 按钮操作组 end-->
+      </el-table>
+    </template>
     <!-- 表格数据 end-->
     <!-- 分页 -->
     <template v-if="total">
@@ -86,6 +97,10 @@
 <script>
 export default {
   props: {
+    show: {
+      type: Boolean,
+      default: true
+    },
     list: {
       type: Array,
       default() {

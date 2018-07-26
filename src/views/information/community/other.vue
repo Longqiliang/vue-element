@@ -19,6 +19,7 @@ export default {
   data () {
     return {
       table1: {
+        show: true,
         list: [
           {
             filename: '前期物业招标文件',
@@ -65,7 +66,7 @@ export default {
               label: '',
               svg: 'remove',
               method: (index, row) => {
-                this.sideDown()
+                this.toogleShow()
               }
             }
           ]
@@ -74,8 +75,8 @@ export default {
     }
   },
   methods: {
-    sideDown() {
-
+    toogleShow() {
+      this.table1.show = !this.table1.show
     }
   }
 }

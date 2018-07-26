@@ -8,14 +8,14 @@ body,html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: "Microsoft YaHei";
-
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
   margin: 0;
   padding: 0;
   height: 100%;
 }
 button{
-  font-family: "Microsoft YaHei";
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 body.is-component,
 html.is-component{
@@ -28,7 +28,7 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 div:focus{
@@ -58,7 +58,15 @@ a:hover {
     height: 0;
   }
 }
-
+.flex{
+  display: flex;
+}
+.flex-center{
+  align-items: center;
+}
+.h100{
+  height: 100%;
+}
 #app {
   .is-component{
     .app-wrapper{
@@ -114,7 +122,7 @@ a:hover {
   padding: 20px;
 }
 .wrapper_scroll {
-  height: calc(100% - #{$headerHeight});
+  height: calc(100% - #{$headerHeight} - #{$footerHeight});
   margin-top: $headerHeight;
   overflow: hidden;
   position: relative;
@@ -147,15 +155,15 @@ a:hover {
     }
   }
   .el-table{
-    font-size: 16px;
+    font-size: 14px;
     thead{
       color: #187ab9;
     }
     th{
-      padding: 8px 0;
+      padding: 6px 0;
     }
     td{
-      padding: 8px 0;
+      padding: 6px 0;
       .el-button{
         &--text{
           font-size: 14px;
@@ -170,45 +178,53 @@ a:hover {
     }
   } 
 }
-.table-header{
-  height: 50px;
-  padding: 0 10px;
-  border: 1px solid $border-color-lighter;
-  border-bottom: none;
-  background-color: $defalutBg;
-  position: relative;
-}
-.table-title {
-  margin: 0;
-  font-size: 18px;
-  line-height: 50px;
-  font-weight: normal;
-  &.is-left{
-    text-align: left;
+.table{
+  &-header{
+    height: 50px;
+    padding: 0 10px;
+    border: 1px solid $border-color-lighter;
+    border-bottom: none;
+    background-color: $defalutBg;
+    position: relative;
   }
-  &.is-right {
-    text-align: right;
-  }
-  &.is-center {
-    text-align: center;
-    font-weight: bold;
-  }
-  &-slot{
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    .el-button{
-      font-size: 16px;
-      padding: 7px 12px;
-      border-radius: 3px;
-      .svg-icon {
-        vertical-align: sub;
-        font-size: 16px;
+  &-title {
+    margin: 0;
+    font-size: 18px;
+    line-height: 50px;
+    font-weight: normal;
+    &.is-left{
+      text-align: left;
+    }
+    &.is-right {
+      text-align: right;
+    }
+    &.is-center {
+      text-align: center;
+      font-weight: bold;
+    }
+    &-slot{
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      .button{
+        display: inline-block;
+        padding: 7px 3px;
+        cursor: pointer;
       }
-    } 
+      .el-button{
+        font-size: 14px;
+        padding: 7px 12px;
+        border-radius: 3px;
+        .svg-icon {
+          vertical-align: sub;
+          font-size: 16px;
+        }
+      } 
+    }
   }
 }
+
 
 //表单组件
 
@@ -226,12 +242,32 @@ a:hover {
     }
   }
 }
+.file-form {
+  .field-search{
+    >.input-group{
+      &__label{
+        min-width: 180px;
+      }
+    }  
+  }
+}
 .field-search{
   border: 1px solid $border-color-lighter;
   >.input-group__label{
     min-width: 105px;
     background-color: $defalutBg;
     border-right: 1px solid $border-color-lighter;
+  }
+  .el-range-editor{
+    &.el-input{
+      &__inner{
+        width: 100%;
+      }
+    }  
+    .el-range-separator{
+      min-width: 9%;
+      font-size: 14px;
+    }
   }
   .form-control{
     border: none;
@@ -269,18 +305,22 @@ a:hover {
     }
   }
   &-number{
-    width: calc(50% - 24px);
+    flex: 1;
   }
   &__label{
     width: 1%;
     display: table-cell;
     white-space: nowrap;
     vertical-align: middle;
-    font-size: 16px;
+    font-size: 14px;
     color: $black;
     line-height: 40px;
     padding: 0 12px;
     text-align: center;
+  }
+  &__content{
+    height: 40px;
+    padding: 0 10px;
   }
   .form-control{
     display: table-cell;
@@ -295,7 +335,7 @@ a:hover {
   color: $black;
   height: 40px;
   padding: 6px 12px;
-  font-size: 16px;
+  font-size: $default-font;
   line-height: 1.42857143;
 }
 .form-footer-inline{
@@ -308,10 +348,11 @@ a:hover {
   }
   .el-button{
     margin-top: 1px;
-    font-size: 18px;
+    font-size: $default-font;
+    padding: 7px 12px;
     .svg-icon{
       vertical-align: sub;
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 }
@@ -319,10 +360,11 @@ a:hover {
   text-align: center;
   padding: 10px 0;
   .el-button{
-    font-size: 18px;
+    font-size: $default-font;
+    padding: 7px 12px;
     .svg-icon {
       vertical-align: sub;
-      font-size: 22px;
+      font-size: 16px;
     }
   }
   

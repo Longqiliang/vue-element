@@ -6,14 +6,14 @@
           <template slot="prepend">企业名称</template>
         </el-input>
       </div>
-      <div>
-        <el-button type="success">
+      <div class="form-footer">
+        <el-button type="success" size="medium">
           <svg-icon icon-class="del"></svg-icon>
-          <span>清空</span>
+          清空
         </el-button>
-        <el-button type="primary">
+        <el-button type="primary"  size="medium">
           <svg-icon icon-class="search"></svg-icon>
-          <span>查询</span>
+          查询
         </el-button>
       </div>
     </div>
@@ -83,7 +83,7 @@ export default {
           {
             label: '宝安管理项目数量',
             name: 'street',
-            width: 100,
+            width: 180,
             render: (h, params) => {
               return (
                 <el-popover placement="bottom" width="300" trigger="hover">
@@ -96,7 +96,7 @@ export default {
           {
             label: '法人',
             name: 'station',
-            width: 200
+            width: 100
           },
           {
             label: '联系方式',
@@ -205,6 +205,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .query-title {
   width: 100%;
   display: flex;

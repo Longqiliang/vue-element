@@ -12,8 +12,8 @@
           </el-button>
         </router-link>
       </div>
-      <div>
-        <el-button type="warning" size="small">
+      <div class="form-footer-inline">
+        <el-button type="warning" size="medium">
           <svg-icon icon-class="export"></svg-icon>
           <span>导出</span>
         </el-button>

@@ -185,6 +185,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .project-library{
   width: 100%;
 }

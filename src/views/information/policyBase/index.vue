@@ -1,7 +1,7 @@
 <template>
   <div class="regulations-wrap">
     <div class="regula-top">
-      <div class="regula-rigth">
+      <div class="regula-rigth form-footer-inline">
         <el-button type="success" size="medium">
           <svg-icon icon-class="del"></svg-icon>清空</el-button>
         <el-button type="primary" size="medium">
@@ -157,6 +157,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .regulations-wrap {
   width: 100%;
 }

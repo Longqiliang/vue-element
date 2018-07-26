@@ -3,9 +3,9 @@
     <h3 class="navbar-title">
       {{list[list.length - 1].meta.title}}
     </h3>
-    <el-menu class="navbar">
+    <!-- <el-menu class="navbar">
       <breadcrumb :list="list"></breadcrumb>
-    </el-menu>
+    </el-menu> -->
   </div>
 </template>
 
@@ -48,6 +48,7 @@ export default {
     margin: 0;
     font-size: 23px;
     font-weight: 500;
+    padding-bottom: 15px;
   }
   height: 50px;
   line-height: 50px;
