@@ -1,7 +1,7 @@
 #app {
   $sideBar: 175px; // 主体区域
   .main-container {
-    min-height: 100%;
+    height: 100%;
     transition: margin-left 0.28s;
     margin-left: $sideBar;
     padding: 20px;
@@ -28,16 +28,6 @@
     .svg-icon {
       margin-right: 3px;
     }
-    .menu-wrapper {
-      .active {
-        .el-menu-item {
-          &.is-active {
-            color: #fff !important;
-            background-color: $menuHover !important;
-          }
-        }
-      }
-    }
     .el-menu {
       border: none;
       // width: 100%;
@@ -48,24 +38,46 @@
         padding: 0 16px;
       }
     }
-    .el-submenu {
-      &.is-active{
-        color: #fff !important;
-        background-color: $menuHover !important;
+    .scroll-wrapper{
+        >.el-menu{
+          >.menu-wrapper{
+            >.el-submenu{
+              &.is-active{
+                >.el-submenu{
+                  &__title{
+                    background-color: $menuHover !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+    .menu-wrapper{
+      >.active {
+        .el-menu-item {
+          &.is-active {
+            color: #fff !important;
+            background-color: $menuHover !important;
+          }
+        }
       }
-      &__title {
-        background-color: inherit!important;
-        font-size: 1.2em;
-        height: 48px;
-        line-height: 48px;
-        padding: 0 16px;
-        i{
-          font-size: $default-font;
-          color:#fff;
-          right: 20px;
+      .el-submenu {
+        &__title {
+          // background-color: inherit!important;
+          font-size: 1.2em;
+          height: 48px;
+          line-height: 48px;
+          padding: 0 16px;
+          i{
+            font-size: $default-font;
+            color:#fff;
+            right: 20px;
+          }
         }
       }
     }
+   
     
   }
   .hideSidebar {

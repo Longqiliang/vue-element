@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container is-vertical">
     <!-- 表格标题 -->
     <template v-if="title.show">
       <div class="table-header">
@@ -34,6 +34,7 @@
     <!-- 表格标题 end -->
     <!-- 表格数据 -->
     <template v-if="show">
+      <div class="flex-scroll">
       <el-table :data="list" style="width: 100%" border header-cell-class-name="default-bg"
         @selection-change="handleSelectionChange">
         <el-table-column v-if="isMultiple" type="selection" width="45" align="center"></el-table-column>
@@ -79,6 +80,7 @@
         </el-table-column> 
         <!-- 按钮操作组 end-->
       </el-table>
+      </div>
     </template>
     <!-- 表格数据 end-->
     <!-- 分页 -->

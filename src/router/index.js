@@ -201,7 +201,7 @@ const constantRouterMap = [
           import('@/views/transaction/notice/add')
       }]
     }, {
-      path: 'payments',
+      path: '/transaction/payments',
       name: 'payments',
       meta: {
         title: '公共资源收支'
@@ -240,7 +240,46 @@ const constantRouterMap = [
     meta: {
       icon: 'star',
       title: '星级评定'
-    }
+    },
+    children: [{
+      path: 'eventManagement',
+      name: 'eventManagement',
+      redirect: 'eventManagement/index',
+      childHidden: true,
+      meta: {
+        title: '活动管理'
+      },
+      component: () =>
+        import('@/views/layout/components/DefaultView'),
+      children: [{
+        path: 'index',
+        component: () =>
+          import('@/views/evaluation/eventManagement/index')
+      }]
+    }, {
+      path: '/evaluation/satisfactionSurvey',
+      name: 'satisfactionSurvey',
+      meta: {
+        title: '满意度调查'
+      },
+      component: () =>
+        import('@/views/layout/components/DefaultView'),
+      children: [{
+        path: 'survey',
+        meta: {
+          title: '调查配置'
+        },
+        component: () =>
+          import('@/views/evaluation/satisfactionSurvey/survey/index')
+      }, {
+        path: 'other',
+        meta: {
+          title: '第三方机构调查'
+        },
+        component: () =>
+          import('@/views/evaluation/satisfactionSurvey/other/index')
+      }]
+    }]
   }, {
     path: '/integrity',
     component: Layout,

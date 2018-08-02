@@ -20,15 +20,21 @@ export default {
       'sidebar'
     ]),
     routes () {
+      // console.log(this.$router.options.routes)
+      // console.log(this.$route)
       return this.$router.options.routes
     },
     routePath () {
       let arr = this.$route.path.split('/')
       let path
       if (arr[1] !== 'index') {
-        path = '/' + arr[1] + '/' + arr[2]
+        if (arr[2] === 'payments' || arr[2] === 'satisfactionSurvey') {
+          path = `/${arr[1]}/${arr[2]}/${arr[3]}`
+        } else {
+          path = `/${arr[1]}/${arr[2]}`
+        }
       } else {
-        path = '/' + arr[1]
+        path = `/${arr[1]}`
       }
       return path
     },
