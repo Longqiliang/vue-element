@@ -92,7 +92,23 @@ export default {
         title: {
           show: true,
           align: 'left',
-          label: '人员组成'
+          label: '人员组成',
+          list: [
+            {
+              render: (h, ctx) => {
+                return (
+                  <select name="street" class="form-control" id="s">
+                    <option value="1">第二届（2014.06.27-2017.06.27）</option>
+                    <option value="2">街道办2</option>
+                    <option value="3">街道办3</option>
+                  </select>
+                )
+              },
+              method: (index, row) => {
+
+              }
+            }
+          ]
         }
       }
     }
@@ -101,5 +117,4 @@ export default {
 </script>
 
 <style>
-
 </style>

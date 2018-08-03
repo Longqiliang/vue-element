@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-form ref="communityForm" >
+    <el-form ref="communityForm">
       <el-row type="flex" class="form-row">
-        <el-col :span="8">
+        <!-- <el-col :span="8">
           <div class="input-group field-search">
             <label for="s" class="input-group__label">是否成立党支部</label>
             <select name="street" class="form-control" id="s">
@@ -10,7 +10,8 @@
               <option value="2">否</option>
             </select>
           </div>
-        </el-col>
+        </el-col> -->
+
         <el-col :span="8">
           <div class="input-group field-search">
             <label for="s" class="input-group__label">党支部名称</label>
@@ -19,16 +20,8 @@
         </el-col>
         <el-col :span="8">
           <div class="input-group field-search">
-            <label for="s" class="input-group__label">党支部书记</label>
-             <el-input></el-input>
-          </div>
-        </el-col>
-      </el-row>
-      <el-row type="flex" class="form-row">
-        <el-col :span="8">
-          <div class="input-group field-search">
             <label for="s" class="input-group__label">党支部成立时间</label>
-            <el-date-picker  placeholder=""></el-date-picker>
+            <el-date-picker placeholder=""></el-date-picker>
           </div>
         </el-col>
         <el-col :span="8">
@@ -37,12 +30,22 @@
             <el-input></el-input>
           </div>
         </el-col>
-       
+        <!-- <el-col :span="8">
+          <div class="input-group field-search">
+            <label for="s" class="input-group__label">党支部书记</label>
+             <el-input></el-input>
+          </div>
+        </el-col> -->
       </el-row>
+      <!-- <el-row type="flex" class="form-row">
+        
+        x
+       
+      </el-row> -->
     </el-form>
-    <BTable v-bind="table"  class="table-mar"/>
+    <BTable v-bind="table" class="table-mar" />
   </div>
-  
+
 </template>
 
 <script>
@@ -135,7 +138,20 @@ export default {
         title: {
           show: true,
           align: 'left',
-          label: '人员组成'
+          label: '人员组成',
+          list: [
+            {
+              align: 'left',
+              render: (h, ctx) => {
+                return (
+                  <span>小区党员名单>></span>
+                )
+              },
+              method: (index, row) => {
+
+              }
+            }
+          ]
         }
       }
     }
@@ -143,8 +159,10 @@ export default {
 }
 </script>
 
-<style>
-  .table-mar{
-    margin-top: 15px;
-  }
+<style lang="scss" scoped>
+.table-mar {
+  margin-top: 15px;
+}
+
+ 
 </style>

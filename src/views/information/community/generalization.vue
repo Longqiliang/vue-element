@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="flex-scroll">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td colspan="7" class="table-title-top">
-          <span>基本概括</span>
+          <span>基本概况</span>
           <span>
             <svg-icon icon-class="search"></svg-icon>
-            <el-button type="success" size="medium" @click="compile">
-              <svg-icon icon-class="write"></svg-icon>
-              <span>编辑</span>
+            <el-button type="success" size="medium" @click="compile">              
+                <svg-icon icon-class="write"></svg-icon>
+                编辑
             </el-button>
           </span>
         </td>
@@ -42,6 +42,20 @@
       </tr>
       <tr>
         <td class="has-background">
+          <span class="must">*</span>所属街道
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
+        <td class="has-background">
+          <span class="must">*</span>所属工作站
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
+      </tr>
+      <tr>
+        <td class="has-background">
           <span class="must">*</span>物业服务企业
         </td>
         <td colspan="3">
@@ -54,7 +68,7 @@
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must">*</span>联系方式
+          <span class="must">*</span>联系电话
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow">
@@ -122,13 +136,13 @@
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must"></span>计容积率建筑面积
+          <span class="must">*</span>计容积率建筑面积
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
         <td class="has-background">
-          <span class="must"></span>不计容积率建筑面积
+          <span class="must">*</span>不计容积率建筑面积
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow">
@@ -148,7 +162,27 @@
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
       </tr>
+      <!-- <tr>
+        <td class="has-background">
+          <span class="must">*</span>物业管理用房面积
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
+        <td class="has-background">
+          <span class="must">*</span>栋数
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
+      </tr> -->
       <tr>
+        <td class="has-background">
+          <span class="must">*</span>总套数
+        </td>
+        <td colspan="2">
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
         <td class="has-background">
           <span class="must">*</span>物业管理用房面积
         </td>
@@ -164,7 +198,7 @@
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must">*</span>总套数
+          <span class="must"></span>建筑绿盖率
         </td>
         <td colspan="2">
           <input type="text" v-model="public" :disabled="saveShow">
@@ -184,21 +218,18 @@
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must"></span>建筑绿盖率
-        </td>
-        <td colspan="2">
-          <input type="text" v-model="public" :disabled="saveShow">
-        </td>
-        <td class="has-background">
           <span class="must"></span>建筑覆盖率
         </td>
-        <td>
+        <td colspan="2">
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
         <td class="has-background">
           <span class="must"></span>建筑容积率
         </td>
         <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
+        <td colspan="2">
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
       </tr>
@@ -233,7 +264,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.flex-scroll::-webkit-scrollbar {
+    display: none;
+}
 .details-top {
   display: flex;
   align-items: center;

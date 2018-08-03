@@ -34,6 +34,10 @@ export default {
           path: 'generalization'
         },
         {
+          label: '合同规约',
+          path: 'specifications'
+        },
+        {
           label: '配套设施',
           path: 'facility'
         },
@@ -42,7 +46,7 @@ export default {
           path: 'worker'
         },
         {
-          label: '业主委员会',
+          label: '业主（房主）委员会',
           path: 'committee'
         },
         {

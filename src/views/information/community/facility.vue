@@ -8,7 +8,7 @@
             <svg-icon icon-class="search"></svg-icon>
             <el-button type="success" size="medium" @click="compile">
               <svg-icon icon-class="write"></svg-icon>
-              <span>编辑</span>
+              编辑
             </el-button>
           </span>
         </td>
@@ -162,13 +162,13 @@
 
     <table width="100%" border="1" bordercolor="#649efc" cellpadding="0" cellspacing="0">
       <tr>
-        <td colspan="6" class="has-background">
-          <span class="must"></span>房屋建筑本体公用部位及本公用设施设备
+        <td colspan="4" class="has-background">
+          <span class="must">*</span>房屋建筑本体公用部位及本公用设施设备
         </td>
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must"></span>电梯（台）
+          <span class="must">*</span>电梯（台）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
@@ -179,16 +179,16 @@
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
         </td>
-        <td class="has-background">
+        <!-- <td class="has-background">
           <span class="must">*</span>功率（KW）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
-        </td>
+        </td> -->
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must"></span>配电房变压器（台）
+          <span class="must">*</span>配电房变压器（台）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
@@ -199,16 +199,16 @@
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
         </td>
-        <td class="has-background">
+        <!-- <td class="has-background">
           <span class="must">*</span>功率（KW）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
-        </td>
+        </td> -->
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must"></span>发电机组（台）
+          <span class="must">*</span>发电机组（台）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
@@ -219,12 +219,12 @@
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
         </td>
-        <td class="has-background">
+        <!-- <td class="has-background">
           <span class="must">*</span>功率（KW）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
-        </td>
+        </td> -->
       </tr>
       <tr>
         <td class="has-background">
@@ -244,31 +244,31 @@
         <td class="has-background">
           <span class="must">*</span>消防系统情况
         </td>
-        <td colspan="5">
-          <input type="text" v-model="public" :disabled="saveShow"> 
+        <td colspan="3">
+          <input type="text" v-model="public" :disabled="saveShow" placeholder="是否符合国家规范要求的消防系统"> 
         </td>
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must">*</span>智能化系统情况
+          <span class="must"></span>智能化系统情况
         </td>
-        <td colspan="5">
-          <input type="text" v-model="public" :disabled="saveShow"> 
+        <td colspan="3">
+          <input type="text" v-model="public" :disabled="saveShow" placeholder="是否符合国家规范要求的智能系统"> 
         </td>
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must">*</span>其他设施设备情况
+          <span class="must"></span>其他设施设备情况
         </td>
-        <td colspan="5">
-          <input type="text" v-model="public" :disabled="saveShow"> 
+        <td colspan="3">
+          <input type="text" v-model="public" :disabled="saveShow" placeholder="是否配置符合国家规范要求的可视对讲系统"> 
         </td>
       </tr>
       <tr>
         <td class="has-background">
           <span class="must"></span>业主委员会活动用房位置
         </td>
-        <td colspan="5">
+        <td colspan="3">
           <input type="text" v-model="public" :disabled="saveShow"> 
         </td>
       </tr>
@@ -276,7 +276,7 @@
         <td class="has-background">
           <span class="must"></span>物业服务办公室用房位置
         </td>
-        <td colspan="5">
+        <td colspan="3">
           <input type="text" v-model="public" :disabled="saveShow"> 
         </td>
       </tr>
@@ -284,7 +284,7 @@
         <td class="has-background">
           <span class="must"></span>物业管理员工宿舍位置
         </td>
-        <td colspan="5">
+        <td colspan="3">
           <input type="text" v-model="public" :disabled="saveShow"> 
         </td>
       </tr>
@@ -320,6 +320,9 @@ export default {
 
 <style lang="scss" scoped>
 $default-font: 14px;
+.flex-scroll::-webkit-scrollbar {
+    display: none;
+}
 .details-top {
   display: flex;
   align-items: center;

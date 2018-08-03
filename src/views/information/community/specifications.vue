@@ -1,22 +1,10 @@
 <template>
   <div>
     <div class="table-group-title">
-      <h3>配套人员</h3>
+      <h3>合同规约</h3>
     </div>
-    <el-collapse v-model="activeNames" @change="handleChange">
-      <el-collapse-item title="前期物业招标文件" name="1">
-        <BTable v-bind="table1" />
-      </el-collapse-item>
-      <el-collapse-item title="应急预案" name="2">
-        <BTable v-bind="table1" />
-      </el-collapse-item>
-      <el-collapse-item title="备案事项" name="3">
-        <BTable v-bind="table1" />
-      </el-collapse-item>
-      <el-collapse-item title="其他" name="4">
-        <BTable v-bind="table1" />
-      </el-collapse-item>
-    </el-collapse>
+    <BTable v-bind="table1" class="table-item" />
+    <BTable v-bind="table1" class="table-item" />
   </div>
 </template>
 
@@ -29,19 +17,22 @@ export default {
   },
   data () {
     return {
-      activeNames: ['1'],
       table1: {
         show: true,
         list: [
           {
-            filename: '前期物业招标文件',
+            filename: '前期物业合同',
+            updatetime: 1531829965671
+          },
+          {
+            filename: '物业服务合同',
             updatetime: 1531829965671
           }
         ],
         isMultiple: false,
         tableHeader: [
           {
-            label: '文件名称',
+            label: '合同名称',
             name: 'filename',
             width: 600
           },
@@ -70,18 +61,18 @@ export default {
           ]
         },
         title: {
-          // show: true,
-          // align: 'center',
-          // label: '前期物业招标文件',
-          // list: [
-          //   {
-          //     label: '',
-          //     svg: 'remove',
-          //     method: (index, row) => {
-          //       this.toogleShow()
-          //     }
-          //   }
-          // ]
+          show: true,
+          align: 'center',
+          label: '前期物业招标文件',
+          list: [
+            {
+              label: '',
+              svg: 'remove',
+              method: (index, row) => {
+                this.toogleShow()
+              }
+            }
+          ]
         }
       }
     }
@@ -89,13 +80,10 @@ export default {
   methods: {
     toogleShow () {
       this.table1.show = !this.table1.show
-    },
-    handleChange (val) {
-      console.log(val)
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style>
 </style>

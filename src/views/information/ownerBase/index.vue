@@ -4,7 +4,7 @@
     <el-row type="flex" class="form-row">
       <el-col :span="8">
         <div class="input-group field-search">
-          <label for="s" class="input-group__label">街道办</label>
+          <label for="s" class="input-group__label">所属街道办</label>
           <select name="street" class="form-control" id="s">
             <option value="1">街道办1</option>
             <option value="2">街道办2</option>
@@ -14,7 +14,7 @@
       </el-col>
       <el-col :span="8">
         <div class="input-group field-search">
-          <label for="s" class="input-group__label">工作站</label>
+          <label for="s" class="input-group__label">所属工作站</label>
           <select name="street" class="form-control" id="s">
             <option value="1">街道办1</option>
             <option value="2">街道办2</option>
@@ -93,7 +93,7 @@ export default {
             width: 260
           },
           {
-            label: '小区业主数',
+            label: '总业/房主人数',
             name: 'owner',
             width: 120
           }

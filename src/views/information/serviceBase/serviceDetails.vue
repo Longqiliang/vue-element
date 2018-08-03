@@ -1,5 +1,5 @@
 <template>
-  <div class="service-details">
+  <div class="service-details flex-scroll">
     <div class="details-top">
       <div class="firm-details">
         <svg-icon icon-class="search"></svg-icon>
@@ -20,7 +20,7 @@
             <svg-icon icon-class="search"></svg-icon>
             <el-button type="success" size="medium" @click="compile">
               <svg-icon icon-class="write"></svg-icon>
-              <span>编辑</span>
+              编辑
             </el-button>
           </span>
         </td>
@@ -110,6 +110,24 @@
         <td colspan="3" class="content-col">
           <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange" :file-list="fileList3">
             <a>上传附件</a>
+          </el-upload>
+        </td>
+      </tr>
+      <tr v-if="saveShow">
+        <td scope="row" class="has-background">
+          <span class="must">*</span>上级企业</td>
+        <td colspan="3" class="content-col">
+          <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange" :file-list="fileList3">
+            <a>默认获取</a>
+          </el-upload>
+        </td>
+      </tr>
+      <tr v-if="saveShow">
+        <td scope="row" class="has-background">
+          <span class="must">*</span>管理分/子公司数量</td>
+        <td colspan="3" class="content-col">
+          <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange" :file-list="fileList3">
+            <a>默认获取</a>
           </el-upload>
         </td>
       </tr>

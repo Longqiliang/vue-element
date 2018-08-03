@@ -6,7 +6,7 @@
         <div class="input-group field-search">
           <label for="s" class="input-group__label">工作站名称</label>
           <select name="street" class="form-control" id="s">
-            <option value="1">街道办1</option>
+            <option value="1">所属街道</option>
             <option value="2">街道办2</option>
             <option value="3">街道办3</option>
           </select>
@@ -16,7 +16,7 @@
         <div class="input-group field-search">
           <label for="s" class="input-group__label">工作站名称</label>
           <select name="street" class="form-control" id="s">
-            <option value="1">街道办1</option>
+            <option value="1">所属工作站</option>
             <option value="2">街道办2</option>
             <option value="3">街道办3</option>
           </select>
@@ -29,7 +29,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-row type="flex" class="form-row">
+    <!-- <el-row type="flex" class="form-row">
            <el-col :span="8">
         <div class="input-group field-search">
           <label for="s" class="input-group__label">工作站名称</label>
@@ -56,7 +56,7 @@
           <el-input placeholder="请输入小区名称"></el-input>
         </div>
       </el-col>
-    </el-row>
+    </el-row> -->
     <div class="form-footer">
       <el-button type="success" size="medium"><svg-icon icon-class="del"></svg-icon>清空</el-button>
       <el-button type="primary" size="medium"><svg-icon icon-class="search"></svg-icon>查询</el-button>

@@ -53,6 +53,10 @@ const constantRouterMap = [
           component: () =>
             import('@/views/information/community/generalization')
         }, {
+          path: 'specifications',
+          component: () =>
+            import('@/views/information/community/specifications')
+        }, {
           path: 'facility',
           component: () =>
             import('@/views/information/community/facility')
@@ -121,18 +125,18 @@ const constantRouterMap = [
       redirect: 'ownerBase/index',
       childHidden: true,
       component: () =>
-          import('@/views/layout/components/DefaultView'),
+        import('@/views/layout/components/DefaultView'),
       children: [{
         path: 'index',
         component: () =>
-        import('@/views/information/ownerBase/index')
+          import('@/views/information/ownerBase/index')
       }, {
         path: 'detail/:id',
         component: () =>
-        import('@/views/information/ownerBase/detail')
+          import('@/views/information/ownerBase/detail')
       }],
       meta: {
-        title: '业主库'
+        title: '业主（房主）库'
       }
     }, {
       path: 'manageBase',
@@ -214,21 +218,21 @@ const constantRouterMap = [
           title: '综合管理'
         },
         component: () =>
-        import('@/views/transaction/payments/composite/composite')
+          import('@/views/transaction/payments/composite/composite')
       }, {
         path: 'expenditure',
         meta: {
           title: '支出管理'
         },
         component: () =>
-        import('@/views/transaction/payments/expenditure/expenditure')
+          import('@/views/transaction/payments/expenditure/expenditure')
       }, {
         path: 'income',
         meta: {
           title: '收入管理'
         },
         component: () =>
-        import('@/views/transaction/payments/income/income')
+          import('@/views/transaction/payments/income/income')
       }]
     }]
   },

@@ -1,5 +1,5 @@
 <template>
-  <div class="base-detail">
+  <div class="base-detail flex-scroll">
     <div class="query-title">
       <div>
         <el-input placeholder="请输入企业名称" v-model="input3">
@@ -11,7 +11,7 @@
           <svg-icon icon-class="del"></svg-icon>
           清空
         </el-button>
-        <el-button type="primary"  size="medium">
+        <el-button type="primary" size="medium">
           <svg-icon icon-class="search"></svg-icon>
           查询
         </el-button>
@@ -38,6 +38,7 @@ export default {
           {
             index: '1',
             name: '深圳开元国际物流有限公司',
+            has: '无',
             street: '7',
             detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
@@ -46,6 +47,7 @@ export default {
           {
             index: '2',
             name: '深圳开元国际物流有限公司',
+            has: '无',
             street: '7',
             detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
@@ -54,6 +56,7 @@ export default {
           {
             index: '3',
             name: '深圳开元国际物流有限公司',
+            has: '无',
             street: '7',
             detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
@@ -62,6 +65,7 @@ export default {
           {
             index: '4',
             name: '深圳开元国际物流有限公司',
+            has: '无',
             street: '7',
             detail: '丽景城，丽华桂园，荣太园，丽景城，丽华桂园，荣太园',
             station: '李安',
@@ -81,9 +85,14 @@ export default {
             width: 250
           },
           {
-            label: '宝安管理项目数量',
+            label: '上级公司',
+            name: 'has',
+            width: 150
+          },
+          {
+            label: '分/子公司数量',
             name: 'street',
-            width: 180,
+            width: 150,
             render: (h, params) => {
               return (
                 <el-popover placement="bottom" width="300" trigger="hover">
@@ -91,6 +100,22 @@ export default {
                   <span slot="reference">{params.row.street}</span>
                 </el-popover>
               )
+            }
+          },
+          {
+            label: '宝安管理项目数量',
+            name: 'street',
+            width: 150,
+            render: (h, params) => {
+              return (
+                <el-popover placement="bottom" width="300" trigger="hover">
+                  <div>{params.row.detail}</div>
+                  <span slot="reference">{params.row.street}</span>
+                </el-popover>
+              )
+            },
+            method: (index, row) => {
+              this.projectlib(index, row)
             }
           },
           {
@@ -126,16 +151,16 @@ export default {
           align: 'left',
           label: '物业服务企业列表列表',
           list: [
-            {
-              render: (h, ctx) => {
-                return (
-                  <el-button nativeOnClick={ctx.method}>查看项目详情</el-button>
-                )
-              },
-              method: (index, row) => {
-                this.projectlib()
-              }
-            },
+            // {
+            //   render: (h, ctx) => {
+            //     return (
+            //       <el-button nativeOnClick={ctx.method}>查看项目详情</el-button>
+            //     )
+            //   },
+            //   method: (index, row) => {
+            //     this.projectlib()
+            //   }
+            // },
             {
               label: '导出',
               type: 'warning',
@@ -174,17 +199,18 @@ export default {
       console.log(row)
       this.$router.push({ path: '/information/serviceBase/serviceDetails/' + row.index })
     },
-    projectlib () {
-      var val = this.table.multipleSelection
-      console.log(this.table.multipleSelection)
-      if (val.length === 1) {
-        this.$router.push({ path: '/information/serviceBase/project/library/' + val[0].index })
-      } else {
-        this.$message({
-          message: '请选择一个对应项目',
-          type: 'warning'
-        })
-      }
+    projectlib (index, row) {
+      // var val = this.table.multipleSelection
+      // console.log(this.table.multipleSelection)
+      // if (val.length === 1) {
+      console.log(index)
+      this.$router.push({ path: '/information/serviceBase/project/library/' + row.index })
+      // } else {
+      //   this.$message({
+      //     message: '请选择一个对应项目',
+      //     type: 'warning'
+      //   })
+      // }
     },
     handleSelectionChange (val) {
       this.table.multipleSelection = val
@@ -205,7 +231,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .query-title {
   width: 100%;
   display: flex;

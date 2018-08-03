@@ -19,7 +19,7 @@
           </select>
         </div>
       </el-col>
-      <el-col :span="6" class="query-title">
+      <!-- <el-col :span="6" class="query-title">
         <el-input v-model="startTime" id="border-right" width="30%">
           <template slot="prepend">成立时间</template>
         </el-input>
@@ -28,6 +28,16 @@
         <el-input v-model="endTime" width="30%">
           <template slot="prepend">至</template>
         </el-input>
+      </el-col> -->
+      <el-col :span="13">
+        <div class="input-group field-search">
+          <label for="s" class="input-group__label">级别</label>
+          <select name="street" class="form-control" id="s">
+            <option value="1">国家</option>
+            <option value="2">请输入法规名称2</option>
+            <option value="3">请输入法规名称3</option>
+          </select>
+        </div>
       </el-col>
     </div>
     <BTable v-bind="table" @handleSelectionChange="handleSelectionChange" @handleCurrentChange="handleCurrentChange" />
@@ -49,13 +59,13 @@ export default {
           {
             index: '1',
             name: '丽华佳园',
-            street: '福永街道',
+            street: '国家级',
             time: '2018.03.06-2019.03.06'
           },
           {
             index: '2',
             name: '丽华佳园',
-            street: '福永街道',
+            street: '省级',
             time: '2018.03.06-2019.03.06'
           }
         ],
@@ -72,14 +82,9 @@ export default {
             width: 350
           },
           {
-            label: '制订单位',
+            label: '级别',
             name: 'street',
             width: 200
-          },
-          {
-            label: '制定日期',
-            name: 'time',
-            width: 300
           }
         ],
         listQuery: {
