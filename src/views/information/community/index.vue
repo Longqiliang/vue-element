@@ -63,7 +63,7 @@
     </div>
   </el-form>
     
-   <BTable v-bind="table" @handleSelectionChange="handleSelectionChange"  @handleCurrentChange="handleCurrentChange" />
+   <BTable v-bind="table" @handleSelectionChange="handleSelectionChange"  @handleCurrentChange="handleCurrentChange" @cellClick="handeCellClick"/>
 </div>
 
 </template>
@@ -274,6 +274,9 @@ export default {
     }
   },
   methods: {
+    handeCellClick(row, column) {
+      console.log(row, column)
+    },
     handleCurrentChange(val) {
       this.table.listQuery.pageIndex = val
     },

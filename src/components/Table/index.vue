@@ -36,7 +36,7 @@
     <template v-if="show">
       <div class="flex-scroll">
       <el-table :data="list" style="width: 100%" border header-cell-class-name="default-bg"
-        @selection-change="handleSelectionChange">
+        @selection-change="handleSelectionChange" @cell-click="handleCellClick">
         <el-table-column v-if="isMultiple" type="selection" width="45" align="center"></el-table-column>
         <el-table-column v-for="(col, c) in tableHeader" :prop="col.slot? null : col.name || col.label" :key="c" :label="col.label" :min-width="col.width" :align="col.align || align" :type="col.type" :sortable="col.sortable">
             <!-- <template v-if="col.children">
@@ -204,6 +204,11 @@ export default {
     // 多行选中
     handleSelectionChange(val) {
       this.$emit('handleSelectionChange', val)
+    },
+    // 点击选择某行
+    handleCellClick(row, column, cell, event) {
+      // console.log(row, column, cell, event)
+      this.$emit('cellClick', row, column)
     }
   }
 }
