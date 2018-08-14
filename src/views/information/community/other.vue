@@ -34,7 +34,11 @@ export default {
         show: true,
         list: [
           {
-            filename: '前期物业招标文件',
+            filename: '物业服务标准和物业费测算依据',
+            updatetime: 1531829965671
+          },
+          {
+            filename: '物业管理服务质量 环境 职业健康安全管理体系',
             updatetime: 1531829965671
           }
         ],

@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="service-list">
-      <BTable v-bind="table" @handleSelectionChange="handleSelectionChange" @handleCurrentChange="handleCurrentChange" />
+      <BTable v-bind="table" @handleSelectionChange="handleSelectionChange" @handleCurrentChange="handleCurrentChange" @cellClick="handeCellClick" />
     </div>
   </div>
 
@@ -113,9 +113,6 @@ export default {
                   <span slot="reference">{params.row.street}</span>
                 </el-popover>
               )
-            },
-            method: (index, row) => {
-              this.projectlib(index, row)
             }
           },
           {
@@ -192,6 +189,13 @@ export default {
     }
   },
   methods: {
+    handeCellClick (row, column) {
+      console.log(row, column)
+      var label = column.label
+      if (label === '宝安管理项目数量') {
+        this.$router.push({ path: '/information/serviceBase/project/library/' + row.index })
+      }
+    },
     handleCurrentChange (val) {
       this.table.listQuery.pageIndex = val
     },

@@ -1,54 +1,60 @@
 <template>
-<div class="base-detail">
-  <el-form ref="communityForm" >
-    <el-row type="flex" class="form-row">
-      <el-col :span="8">
-        <div class="input-group field-search">
-          <label for="s" class="input-group__label">所属街道办</label>
-          <select name="street" class="form-control" id="s">
-            <option value="1">街道办1</option>
-            <option value="2">街道办2</option>
-            <option value="3">街道办3</option>
-          </select>
-        </div>
-      </el-col>
-      <el-col :span="8">
-        <div class="input-group field-search">
-          <label for="s" class="input-group__label">所属工作站</label>
-          <select name="street" class="form-control" id="s">
-            <option value="1">街道办1</option>
-            <option value="2">街道办2</option>
-            <option value="3">街道办3</option>
-          </select>
-        </div>
-      </el-col>
-      <el-col :span="8">
-        <div class="input-group field-search">
-          <label for="s" class="input-group__label">小区名称</label>
-          <el-input placeholder="请输入小区名称"></el-input>
-        </div>
-      </el-col>
-    </el-row>
-    <el-row type="flex" class="form-row">
-      <el-col :span="8">
-        <div class="input-group field-search">
-          <label for="s" class="input-group__label">业主人数</label>
-          <div class="flex">
-            <el-input class="input-group-number"></el-input>
-            <div class="el-input-group__center"><span class="input-group__label">至</span></div>
-            <el-input class="input-group-number"></el-input>
+  <div class="base-detail">
+    <el-form ref="communityForm">
+      <el-row type="flex" class="form-row">
+        <el-col :span="8">
+          <div class="input-group field-search">
+            <label for="s" class="input-group__label">所属街道办</label>
+            <select name="street" class="form-control" id="s">
+              <option value="1">街道办1</option>
+              <option value="2">街道办2</option>
+              <option value="3">街道办3</option>
+            </select>
           </div>
-        </div>
-      </el-col>
-    </el-row>
-    <div class="form-footer">
-      <el-button type="success" size="medium"><svg-icon icon-class="del"></svg-icon>清空</el-button>
-      <el-button type="primary" size="medium"><svg-icon icon-class="search"></svg-icon>查询</el-button>
-    </div>
-  </el-form>
+        </el-col>
+        <el-col :span="8">
+          <div class="input-group field-search">
+            <label for="s" class="input-group__label">所属工作站</label>
+            <select name="street" class="form-control" id="s">
+              <option value="1">街道办1</option>
+              <option value="2">街道办2</option>
+              <option value="3">街道办3</option>
+            </select>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="input-group field-search">
+            <label for="s" class="input-group__label">小区名称</label>
+            <el-input placeholder="请输入小区名称"></el-input>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row type="flex" class="form-row">
+        <el-col :span="8">
+          <div class="input-group field-search">
+            <label for="s" class="input-group__label">业主人数</label>
+            <div class="flex">
+              <el-input class="input-group-number"></el-input>
+              <div class="el-input-group__center">
+                <span class="input-group__label">至</span>
+              </div>
+              <el-input class="input-group-number"></el-input>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+      <div class="form-footer">
+        <el-button type="success" size="medium">
+          <svg-icon icon-class="del"></svg-icon>清空</el-button>
+        <el-button type="primary" size="medium">
+          <svg-icon icon-class="search"></svg-icon>查询</el-button>
+      </div>
+    </el-form>
+
+    <BTable v-bind="table" @handleSelectionChange="handleSelectionChange" @handleCurrentChange="handleCurrentChange" />
+
     
-   <BTable v-bind="table" @handleSelectionChange="handleSelectionChange"  @handleCurrentChange="handleCurrentChange" />
-</div>
+  </div>
 
 </template>
 
@@ -58,7 +64,7 @@ export default {
   components: {
     BTable
   },
-  data() {
+  data () {
     return {
       table: {
         list: [
@@ -151,16 +157,16 @@ export default {
     }
   },
   methods: {
-    handleCurrentChange(val) {
+    handleCurrentChange (val) {
       this.table.listQuery.pageIndex = val
     },
-    handleDetail(id, row) {
+    handleDetail (id, row) {
       this.$router.push({ path: `/information/ownerBase/detail/${id}` })
     },
-    handleSelectionChange(val) {
+    handleSelectionChange (val) {
       this.table.multipleSelection = val
     },
-    handleSelectionRemove(val) {
+    handleSelectionRemove (val) {
       this.$confirm('此操作将删除所选列表中的信息, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',

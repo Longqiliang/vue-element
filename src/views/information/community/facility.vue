@@ -72,67 +72,93 @@
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
         <td class="has-background">
-          <span class="must">*</span>雨水管长（m）
+          <span class="must">*</span>雨水检查井（座）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
       </tr>
       <tr>
-        <td class="has-background">
-          <span class="must">*</span>雨水检查井（座）
-        </td>
-        <td>
-          <input type="text" v-model="public" :disabled="saveShow">
-        </td>
-        <td class="has-background">
-          <span class="must"></span>雨水进水井（座）
-        </td>
-        <td>
-          <input type="text" v-model="public" :disabled="saveShow">
-        </td>
         <td class="has-background">
           <span class="must">*</span>化粪池（座）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
-      </tr>
-      <tr>
         <td class="has-background">
-          <span class="must">*</span>路灯
+          <span class="must">*</span>停车场（个）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow">
         </td>
         <td class="has-background">
-          <span class="must"></span>地灯
+          <span class="must">*</span>垃圾箱（个）
         </td>
         <td>
-          <input type="text" v-model="public" :disabled="saveShow">          
-        </td>
-        <td class="has-background">
-          <span class="must">*</span>草坪灯
-        </td>
-        <td>
-          <input type="text" v-model="public" :disabled="saveShow">          
+          <input type="text" v-model="public" :disabled="saveShow">
         </td>
       </tr>
       <tr>
         <td class="has-background">
-          <span class="must"></span>其他超明设施
-        </td>
-        <td>
-          <input type="text" v-model="public" :disabled="saveShow"> 
-        </td>
-        <td class="has-background">
-          <span class="must">*</span>垃圾箱
-        </td>
-        <td>
-          <input type="text" v-model="public" :disabled="saveShow"> 
-        </td>
-        <td class="has-background">
           <span class="must">*</span>垃圾房建筑面积（m²）
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow">
+        </td>
+        <td class="has-background">
+          <span class="must">*</span>是否有围墙
+        </td>
+        <td>
+          <select name="street" class="genera" id="s">
+            <option value="1">是</option>
+            <option value="2">否</option>
+          </select>          
+        </td>
+        <td class="has-background">
+          <span class="must">*</span>围墙类型
+        </td>
+        <td>
+          <select name="street" class="genera" id="s">
+            <option value="1">铁栅栏</option>
+            <option value="2">木栅栏</option>
+          </select>         
+        </td>
+      </tr>
+      <tr>
+        <td class="has-background">
+          <span class="must"></span>雨水进水井（个）
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow"> 
+        </td>
+        <td class="has-background">
+          <span class="must"></span>雨水管长（m）
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow"> 
+        </td>
+        <td class="has-background">
+          <span class="must"></span>路灯（个）
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow"> 
+        </td>
+      </tr>
+      <tr>
+        <td class="has-background">
+          <span class="must"></span>地灯（个）
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow"> 
+        </td>
+        <td class="has-background">
+          <span class="must"></span>草坪灯（个）
+        </td>
+        <td>
+          <input type="text" v-model="public" :disabled="saveShow"> 
+        </td>
+        <td class="has-background">
+          <span class="must"></span>其他照明设施（个）
         </td>
         <td>
           <input type="text" v-model="public" :disabled="saveShow"> 
@@ -339,6 +365,14 @@ table {
     text-align: center;
     overflow: hidden;
     border: 1px #649efc solid;
+    .genera {
+      width: 100%;
+      height: 100%;
+      border: none;
+      option {
+        text-align: center;
+      }
+    }
     input {
       display: block;
       width: 100%;

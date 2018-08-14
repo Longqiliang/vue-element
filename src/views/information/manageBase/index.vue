@@ -2,26 +2,9 @@
   <el-container>
     <el-aside width="380px" class="base-aside">
       <h4 class="aside-title">机构树</h4>
-      <!-- <el-tree :data="treeData" node-key="id" :props="defaultProps" :indent="40" :accordion="true" class="base-tree">
-        <div slot-scope="{ node, data }">
-          <span></span>
-          <span>{{ node.label }}</span>
-        </div>
-      </el-tree> -->
-      <el-tree :data="treeData" show-checkbox default-expand-all :expand-on-click-node="false">
-        <span class="custom-tree-node" slot-scope="{ node, data }">
-          <span>{{ node.label }}</span>
-          <span>
-            <el-button type="text" icon="el-icon-plus" size="mini" @click="() => append(data)">
-              增加
-            </el-button>
-            <el-button type="text" icon="el-icon-delete" size="mini" @click="() => remove(node, data)">
-              删除
-            </el-button>
-          </span>
-        </span>
-      </el-tree>
+      <Tree :setTree="setTree"></Tree>
     </el-aside>
+    
     <el-main class="base-main">
       <h4 class="main-title">机构信息</h4>
       <el-form>
@@ -76,9 +59,11 @@
 
 <script>
 import BTable from '@/components/Table'
+import Tree from '@/components/Tree/treeSort'
 export default {
   components: {
-    BTable
+    BTable,
+    Tree
   },
   data () {
     return {
@@ -133,66 +118,39 @@ export default {
           label: '机构列表'
         }
       },
-      treeData: [{
+      setTree: [{
         id: 1,
-        label: '福永街道办'
+        name: '福永街道办',
+        children: []
       }, {
         id: 2,
-        label: '西乡街道办',
+        name: '西乡街道办',
         children: [{
           id: 5,
-          label: '河西街道办',
+          name: '河西街道办',
           children: [{
             id: 6,
-            label: '丽景城',
+            name: '丽景城',
             children: [{
               id: 8,
-              label: '丽景城111'
+              name: '丽景城111',
+              children: []
             }]
           }, {
             id: 7,
-            label: '丽华家园'
+            name: '丽华家园',
+            children: []
           }]
         }, {
           id: 3,
-          label: '庄边工作站'
+          name: '庄边工作站',
+          children: []
         }, {
           id: 4,
-          label: '盐田工作站'
+          name: '盐田工作站',
+          children: []
         }]
-      }],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
-      }
-    }
-  },
-  methods: {
-    append (data) {
-      const newChild = { id: this.id++, label: '西乡街道办', children: [] }
-      if (!data.children) {
-        this.$set(data, 'children', [])
-      }
-      data.children.push(newChild)
-    },
-
-    remove (node, data) {
-      const parent = node.parent
-      const children = parent.data.children || parent.data
-      const index = children.findIndex(d => d.id === data.id)
-      children.splice(index, 1)
-    },
-
-    renderContent (h, { node, data, store }) {
-      return (
-        <span class="custom-tree-node">
-          <span>{node.label}</span>
-          <span>
-            <el-button size="mini" type="text" icon="el-icon-plus" on-click={() => this.append(data)}>增加</el-button>
-            <el-button size="mini" type="text" icon="el-icon-delete" on-click={() => this.remove(node, data)}>删除</el-button>
-          </span>
-        </span>
-      )
+      }]
     }
   }
 }
@@ -200,16 +158,16 @@ export default {
 
 <style>
 .custom-tree-node {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    padding-right: 8px;
-  }
-  .is-right{
-    padding-top: 5px;
-  }
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding-right: 8px;
+}
+.is-right {
+  padding-top: 5px;
+}
 </style>
 
 
